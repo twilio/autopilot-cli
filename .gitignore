@@ -1,0 +1,11 @@
+# project files and folders to ignore
+node_modules
+_dev
+_tmp
+data
+config.js
+config-*.js
+
+# other stuff to ignore
+.DS_Store
+Thumbs.db
