@@ -1,0 +1,110 @@
+{
+  "friendlyName": "sandbox-assistant",
+  "logQueries": true,
+  "uniqueName": "sandbox-assistant",
+  "types": [
+    {
+      "uniqueName": "QUESTION",
+      "values": [
+        {
+          "language": "en-US",
+          "value": "what insurance do you take",
+          "synonymOf": ""
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "intentName": "make-appointment",
+      "fields": [
+        {
+          "fieldName": "FirstName",
+          "fieldType": "Twilio.FIRST_NAME"
+        },
+        {
+          "fieldName": "LastName",
+          "fieldType": "Twilio.LAST_NAME"
+        },
+        {
+          "fieldName": "Email",
+          "fieldType": "Twilio.EMAIL"
+        },
+        {
+          "fieldName": "Phone",
+          "fieldType": "Twilio.NUMBER"
+        },
+        {
+          "fieldName": "AppointmentDate",
+          "fieldType": "Twilio.DATE"
+        },
+        {
+          "fieldName": "AppointmentTime",
+          "fieldType": "Twilio.TIME"
+        }
+      ],
+      "samples": [
+        {
+          "language": "en-US",
+          "taggedText": "{AppointmentDate} at {AppointmentTime}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{AppointmentTime} on {AppointmentDate}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{FirstName} {Last Name}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{Email}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{Phone}"
+        }
+      ]
+    },
+    {
+      "intentName": "cancel-appointment",
+      "fields": [
+        {
+          "fieldName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        }
+      ],
+      "samples": []
+    },
+    {
+      "intentName": "modify-appointment",
+      "fields": [
+        {
+          "fieldName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        }
+      ],
+      "samples": []
+    },
+    {
+      "intentName": "confirm-appointment",
+      "fields": [
+        {
+          "fieldName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        }
+      ],
+      "samples": []
+    },
+    {
+      "intentName": "ask-question",
+      "fields": [
+        {
+          "fieldName": "Question",
+          "fieldType": "QUESTION"
+        }
+      ],
+      "samples": []
+    }
+  ]
+}
