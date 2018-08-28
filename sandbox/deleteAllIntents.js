@@ -50,7 +50,7 @@ async function deleteAllIntents(assistantIdentifier) {
   return asst;
 }
 
-deleteIntents('dabble-assistant')
+deleteAllIntents('dabble-assistant')
   .then((results) => {
     console.log("done!");
   }).catch((err) => {

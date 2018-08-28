@@ -12,15 +12,23 @@ function getAssistant(assistantIdentifier) {
 
 async function createAssistant() {
 
+  
+  await client.preview.understand
+  .assistants
+  .create(params)
+  .then((assistant) => {
+    //create intents
+
+  });
+ 
+
   const params = {
     friendlyName: schema.uniqueName,
     uniqueName: schema.uniqueName,
     logQueries: true
   }
 
-  return client.preview.understand
-    .assistants
-    .create(params);
+  return 
 
   await client.preview.understand
     .assistants(schema.uniqueName)
