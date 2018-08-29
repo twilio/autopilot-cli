@@ -1,0 +1,129 @@
+{
+  "friendlyName": "owl-health-assistant",
+  "logQueries": true,
+  "uniqueName": "owl-health-assistant",
+  "fieldTypes": [
+    {
+      "uniqueName": "YES_NO",
+      "values": [
+        {
+          "language": "en-US",
+          "value": "yes",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "no",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "sure",
+          "synonymOf": "yes"
+        },
+        {
+          "language": "en-US",
+          "value": "nope",
+          "synonymOf": "no"
+        }                        
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "uniqueName": "make-appointment",
+      "fields": [
+        {
+          "uniqueName": "FirstName",
+          "fieldType": "Twilio.FIRST_NAME"
+        },
+        {
+          "uniqueName": "LastName",
+          "fieldType": "Twilio.LAST_NAME"
+        },
+        {
+          "uniqueName": "Email",
+          "fieldType": "Twilio.EMAIL"
+        },
+        {
+          "uniqueName": "Phone",
+          "fieldType": "Twilio.NUMBER"
+        },
+        {
+          "uniqueName": "AppointmentDate",
+          "fieldType": "Twilio.DATE"
+        },
+        {
+          "uniqueName": "AppointmentTime",
+          "fieldType": "Twilio.TIME"
+        }
+      ],
+      "samples": [
+        {
+          "language": "en-US",
+          "taggedText": "{AppointmentDate} at {AppointmentTime}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{AppointmentTime} on {AppointmentDate}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{FirstName} {Last Name}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{Email}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "{Phone}"
+        }
+      ]
+    },
+    {
+      "uniqueName": "cancel-appointment",
+      "fields": [
+        {
+          "uniqueName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        }
+      ],
+      "samples": []
+    },
+    {
+      "uniqueName": "modify-appointment",
+      "fields": [
+        {
+          "uniqueName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        },
+        {
+          "uniqueName": "AppointmentDate",
+          "fieldType": "Twilio.DATE"
+        },
+        {
+          "uniqueName": "AppointmentTime",
+          "fieldType": "Twilio.TIME"
+        }        
+      ],
+      "samples": []
+    },
+    {
+      "uniqueName": "confirm-appointment",
+      "fields": [
+        {
+          "uniqueName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        }
+      ],
+      "samples": []
+    },
+    {
+      "uniqueName": "ask-question",
+      "fields": [
+      ],
+      "samples": []
+    }
+  ]
+}

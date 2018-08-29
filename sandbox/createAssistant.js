@@ -21,7 +21,7 @@ const params = {
 
 createAssistant(params)
   .then(result => {
-    console.log(result.toJSON())
+    console.log(`Created an assistant with the name ${result.uniqueName}`)
   })
   .catch(error => {
     console.log(error.message);
