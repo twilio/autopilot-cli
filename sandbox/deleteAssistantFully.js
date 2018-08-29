@@ -7,7 +7,7 @@ const client = new twilio(config.twilio.accountSid, config.twilio.authToken);
 async function deleteAssistantFully(assistantIdentifier) {
 
   return Promise.resolve()
-    .then(_ => {
+    .then(() => {
       // get the assistant
       return client.preview.understand
         .assistants(assistantIdentifier);
@@ -24,7 +24,10 @@ async function deleteAssistantFully(assistantIdentifier) {
               .assistants(assistantIdentifier)
               .intents(intent.sid)
               .samples(sample.sid)
-              .remove();
+              .remove()
+              .catch((err) =>{
+                 console.log(err.message);
+              });
           })
 
         //remove fields
@@ -37,28 +40,30 @@ async function deleteAssistantFully(assistantIdentifier) {
               .assistants(assistantIdentifier)
               .intents(intent.sid)
               .fields(field.sid)
-              .remove();
+              .remove()
+              .catch((err) =>{
+                console.log(err.message);
+             });
           })
       });
 
       return assistant;
     })
     .then(async (assistant) => {
-
       //remove custom field type values
       await assistant.fieldTypes.each(fieldType => {
         client.preview.understand
-          .assistants(assistant.sid)
+          .assistants(assistant._solution.sid)
           .fieldTypes(fieldType.sid)
           .fieldValues
           .each(async fieldValues => {
-            //console.log(fieldValues.sid)
             await client.preview.understand
-              .assistants(assistant.sid)
+              .assistants(assistant._solution.sid)
               .fieldTypes(fieldType.sid)
               .fieldValues(fieldValues.sid)
               .remove()
               .catch((err) => {
+                console.log(err.message,'fieldValues');
                 //deleteAssistantFully(assistantIdentifier);
               });
           });
@@ -67,10 +72,12 @@ async function deleteAssistantFully(assistantIdentifier) {
       //remove custom field types
       await assistant.fieldTypes.each(async (fieldType) => {
         await client.preview.understand
-          .assistants(assistant.sid)
+          .assistants(assistant._solution.sid)
           .fieldTypes(fieldType.sid)
           .remove()
           .catch((err) => {
+            console.log(assistant._solution.sid,fieldType.sid);
+            console.log(err.message,'fieldTypes');
             //deleteAssistantFully(assistantIdentifier);
           });
       });
@@ -85,6 +92,7 @@ async function deleteAssistantFully(assistantIdentifier) {
           .intents(result.sid)
           .remove()
           .catch((err) => {
+            console.log(err.message);
             //deleteAssistantFully(assistantIdentifier);
           });
       });
@@ -96,6 +104,7 @@ async function deleteAssistantFully(assistantIdentifier) {
           .modelBuilds(result.sid)
           .remove()
           .catch((err) => {
+            console.log(err.message);
             //deleteAssistantFully(assistantIdentifier);
           });
       });
@@ -108,12 +117,12 @@ async function deleteAssistantFully(assistantIdentifier) {
         .remove();
     })
     .catch(err => {
-      //console.log(err.message);
+      console.log(err.message);
       deleteAssistantFully(assistantIdentifier);
     })
 }
 
-deleteAssistantFully('UA4000740588ecdbf6d1143d012844376e')
+deleteAssistantFully('UA8ef8112dd4b44c1eb38199397de7eb6e')
   .then((results) => {
     console.log("done!");
   }).catch((err) => {
