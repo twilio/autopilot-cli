@@ -81,23 +81,91 @@ function createAssistantFully() {
     })
     .then((assistant) => {
       //add samples
+      for (let intent of schema.intents) {
+        for (let sample of intent.samples) {
+          await client.preview.understand
+            .assistants(assistant.uniqueName)
+            .intents(intent.uniqueName)
+            .samples
+            .create({ language: sample.language, taggedText: sample.taggedText });
 
+          console.log(`Added sample: ${sample.taggedText} to ${intent.uniqueName} intent`);
+        }
+      }
       return assistant;
     })
     .then((assistant) => {
       //remove 'hello-world' intent and initial modelBuild
-
-      return assistant;
+      return deleteHelloWorldIntent(assistant);
     })
     .then((assistant) => {
       //start model build 
-      // return client.preview.understand
-      //   .assistants(assistant.sid)
-      //   .modelBuilds
-      //   .create();
+      return client.preview.understand
+      .assistants(assistant.uniqueName)
+      .modelBuilds
+      .create({uniqueName:assistant.uniqueName});
     })
     .catch(err => {
       throw err;
+    })
+}
+
+function deleteHelloWorldIntent(assistant){
+  return Promise.resolve()
+    .then(()=>{
+      return client.preview.understand
+      .assistants(assistant.uniqueName)
+      .intents('hello-world');
+    })
+    .then(async (intent)=>{
+      await intent.samples
+        .each(async (sample)=>{
+          await client.preview.understand
+              .assistants(assistant._solution.sid)
+              .intents(intent._solution.sid)
+              .samples(sample.sid)
+              .remove()
+              .catch((err)=>{
+                //console.log(err.message,'sample remove');
+              });
+      });
+      return intent;
+    })
+    .then(async (intent)=>{
+      await client.preview.understand
+          .assistants(assistant._solution.sid)
+          .intents(intent._solution.sid)
+          .fields
+          .each(async(field) => {
+            await client.preview.understand
+              .assistants(assistant._solution.sid)
+              .intents(intent._solution.sid)
+              .fields(field.sid)
+              .remove()
+              .catch((err)=>{
+                //console.log(err.message,'field remove');
+              });
+          })
+          return intent;
+    })
+    .then(async (intent)=>{
+
+      client.preview.understand
+      .assistants(assistant.uniqueName)
+      .modelBuilds('hello-world')
+      .remove();
+
+      client.preview.understand
+          .assistants(assistant._solution.sid)
+          .intents(intent._solution.sid)
+          .remove();
+      return assistant;
+    })
+    .then((assistant)=>{
+      return assistant;
+    })
+    .catch(err=>{
+      deleteHelloWorldIntent(assistant);
     })
 }
 
