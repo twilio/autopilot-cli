@@ -37,7 +37,7 @@ function createAssistantFully() {
         client.preview.understand
           .assistants(assistant.uniqueName)
           .intents
-          .create({ uniqueName: intent.uniqueName });
+          .create({ uniqueName: intent.uniqueName, actions : intent.actions });
 
         console.log(`Added intent: ${intent.uniqueName}`);
       }

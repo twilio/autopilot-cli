@@ -48,7 +48,16 @@ A command line interface for creating Twilio Assistants from a json schema.
             "my email is {email}"
             ]
         }               
-      ]
+      ],
+      actions : {
+          actions :[
+            {
+              fetch_actions : {
+                uri : "https://inquisitive-stretch-2083.twil.io/dabblelabtestbot"
+              }
+            }
+          ]
+        }
     }
   ]
 }
