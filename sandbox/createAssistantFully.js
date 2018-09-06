@@ -15,7 +15,9 @@ function createAssistantFully() {
         .create({
           friendlyName: schema.uniqueName,
           uniqueName: schema.uniqueName,
-          logQueries: true
+          logQueries: true,
+          fallbackActions : schema.fallbackActions,
+          initiationActions : schema.initiationActions
         });
     })
     .catch((err) => {
@@ -25,7 +27,9 @@ function createAssistantFully() {
           .create({
             friendlyName: `${schema.uniqueName}-${Date.now()}`,
             uniqueName: `${schema.uniqueName}-${Date.now()}`,
-            logQueries: true
+            logQueries: true,
+            fallbackActions : schema.fallbackActions,
+            initiationActions : schema.initiationActions
           });
       }
     })

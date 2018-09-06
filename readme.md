@@ -59,7 +59,21 @@ A command line interface for creating Twilio Assistants from a json schema.
           ]
         }
     }
-  ]
+  ],
+  fallbackActions : {
+    actions: [
+		  {
+			  redirect: "task://hello-world"
+		  }
+	  ]
+  },
+  initiationActions : {
+    actions: [
+      {
+        redirect: "task://hello-world"
+      }
+	  ]
+  }
 }
 ```
 

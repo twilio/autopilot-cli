@@ -47,5 +47,19 @@
           ]
         }
       }
-    ]
+    ],
+    "fallbackActions" : {
+        "actions": [
+              {
+                  "redirect": "task://hello-world"
+              }
+          ]
+      },
+      "initiationActions" : {
+        "actions": [
+          {
+            "redirect": "task://hello-world"
+          }
+        ]
+      }
   }
