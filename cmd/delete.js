@@ -5,21 +5,17 @@ module.exports = async (args) => {
   const spinner = ora().start()
 
   try {
+    const sid = args.assistant
 
-    //const assistant = await tag.getAssistants()
+    const result = await tag.deleteAssistantFully(sid)
 
     spinner.stop()
 
-    // assistants
-    //   .each(assistants => {
-    //     console.log(`${assistants.sid} ${assistants.uniqueName}`)
-    //   });
-
-    console.log(`This command is not implemented yet.`)
+    console.log(`Removed assistant with SID: ${args.assistant}`)
 
   } catch (err) {
     spinner.stop()
     
-    console.error(err)
+    console.error(`ERROR: ${err}`)
   }
 }

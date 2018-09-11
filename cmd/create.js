@@ -2,20 +2,15 @@ const ora = require('ora')
 const tag = require('../lib/tag');
 
 module.exports = async (args) => {
-  const spinner = ora().start()
+  const spinner = ora().start('Creating assistant...')
 
   try {
 
-    //const assistant = await tag.getAssistants()
+    const assistant = await tag.createAssistantFully('../test/test_assistant.json')
 
     spinner.stop()
 
-    // assistants
-    //   .each(assistants => {
-    //     console.log(`${assistants.sid} ${assistants.uniqueName}`)
-    //   });
-
-    console.log(`This command is not implemented yet.`)
+    console.log(`Assistant "${assistant.uniqueName}" was created`)
 
   } catch (err) {
     spinner.stop()

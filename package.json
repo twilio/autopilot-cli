@@ -1,6 +1,6 @@
 {
   "name": "@dabblelab/twilio-assistant-cli",
-  "version": "0.0.1001",
+  "version": "0.0.1002",
   "bin": {
     "tag": "./bin/cli.js"
   },

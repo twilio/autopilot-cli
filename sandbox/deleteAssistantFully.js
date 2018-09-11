@@ -1,14 +1,7 @@
-#!/usr/bin/env node
 
 const config = require('../config.js');
 const twilio = require('twilio');
-const program = require('commander');
 const client = new twilio(config.twilio.accountSid, config.twilio.authToken);
-
-program
-  .version('0.0.1', '-v, --version')
-  .option('-s, --sid', 'Assistant SID')
-  .parse(process.argv);
 
 async function deleteAssistantFully(assistantIdentifier) {
 
@@ -32,7 +25,7 @@ async function deleteAssistantFully(assistantIdentifier) {
               .samples(sample.sid)
               .remove()
               .catch((err) =>{
-                 console.log(err.message);
+                 //console.log(err.message);
               });
           })
 
@@ -48,7 +41,7 @@ async function deleteAssistantFully(assistantIdentifier) {
               .fields(field.sid)
               .remove()
               .catch((err) =>{
-                console.log(err.message);
+                //console.log(err.message);
              });
           })
       });
@@ -69,7 +62,7 @@ async function deleteAssistantFully(assistantIdentifier) {
               .fieldValues(fieldValues.sid)
               .remove()
               .catch((err) => {
-                console.log(err.message,'fieldValues');
+                //console.log(err.message,'fieldValues');
                 //deleteAssistantFully(assistantIdentifier);
               });
           });
@@ -82,8 +75,8 @@ async function deleteAssistantFully(assistantIdentifier) {
           .fieldTypes(fieldType.sid)
           .remove()
           .catch((err) => {
-            console.log(assistant._solution.sid,fieldType.sid);
-            console.log(err.message,'fieldTypes');
+            //console.log(assistant._solution.sid,fieldType.sid);
+            //console.log(err.message,'fieldTypes');
             //deleteAssistantFully(assistantIdentifier);
           });
       });
@@ -98,7 +91,7 @@ async function deleteAssistantFully(assistantIdentifier) {
           .intents(result.sid)
           .remove()
           .catch((err) => {
-            console.log(err.message);
+            //console.log(err.message);
             //deleteAssistantFully(assistantIdentifier);
           });
       });
@@ -110,7 +103,7 @@ async function deleteAssistantFully(assistantIdentifier) {
           .modelBuilds(result.sid)
           .remove()
           .catch((err) => {
-            console.log(err.message);
+            //console.log(err.message);
             //deleteAssistantFully(assistantIdentifier);
           });
       });
@@ -123,14 +116,17 @@ async function deleteAssistantFully(assistantIdentifier) {
         .remove();
     })
     .catch(err => {
-      console.log(err.message);
+      //console.log(err.message);
       deleteAssistantFully(assistantIdentifier);
+    })
+    .then(() => {
+      return "done!";
     })
 }
 
-deleteAssistantFully('UA076f18508e5174623b5d3e06b4239598')
+deleteAssistantFully('UA57bc6111d6d159fa9d827cfd5a34bc7d')
   .then((results) => {
-    console.log(`done!`);
+    console.log(`result: ${result}`);
   }).catch((err) => {
     console.log(err.message);
   });
