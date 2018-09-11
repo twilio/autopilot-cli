@@ -2,12 +2,12 @@ Twilio Assistant CLI
 ========
 A command line interface for creating and managing Twilio assistants.
 
-## Using the CLI:
+## General Usage
 
 ```
 Usage:
   tag config --account-sid <account-sid> --auth-token <auth-token> [--profile <name>]
-  tag list
+  tag list [--profile <name>]
   tag create [--template] [--url <url>] [--profile <name>]
   tag create --schema <file> [--profile <name>]
   tag update --schema <file> [--profile <name>]
@@ -24,11 +24,14 @@ Options:
   --assistant-sid       Twilio Assistant SID
 ```
 ## Installation
-The Twilio Assistant CLI (aka: TAG) is installed using the following NPM command.
+The Twilio Assistant CLI (aka: TAG) will eventually be available publicly via NPM. However, while it's in development, the installation process is:
 
-```bash
-$ npm install -g twilio-assistant-cli
-```
+ 1. Clone this git repo
+ 2. `cd` into the project root directory
+ 3. Run `$ sudo npm link`
+
+NOTE: To uninstall/unlink, run `$ sudo npm unlink`
+
 ## Configuration
 Before using the CLI it needs to be configured with with a valid Twilio Account SID and Auth Token. Optionally, multiple accounts can be configured using the `--profile` option to associate an Account SID and Auth Token with a profile name. 
 

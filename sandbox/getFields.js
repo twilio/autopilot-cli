@@ -10,7 +10,7 @@ function getFields(assistantIdentifier, intentIdentifier) {
     .fields;
 }
 
-getFields('dabble-assistant', 'another-new-intent')
+getFields('UA8b0cf0e2f502c7ec7a4a20bdfd9c980f', 'make-appointment')
   .each(field => {
     console.log(`${field.sid}, ${field.uniqueName}`);
   })

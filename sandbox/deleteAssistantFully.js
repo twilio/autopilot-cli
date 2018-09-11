@@ -1,8 +1,14 @@
+#!/usr/bin/env node
 
 const config = require('../config.js');
 const twilio = require('twilio');
-
+const program = require('commander');
 const client = new twilio(config.twilio.accountSid, config.twilio.authToken);
+
+program
+  .version('0.0.1', '-v, --version')
+  .option('-s, --sid', 'Assistant SID')
+  .parse(process.argv);
 
 async function deleteAssistantFully(assistantIdentifier) {
 
@@ -122,9 +128,9 @@ async function deleteAssistantFully(assistantIdentifier) {
     })
 }
 
-deleteAssistantFully('UA8ef8112dd4b44c1eb38199397de7eb6e')
+deleteAssistantFully('UA076f18508e5174623b5d3e06b4239598')
   .then((results) => {
-    console.log("done!");
+    console.log(`done!`);
   }).catch((err) => {
     console.log(err.message);
   });

@@ -1,18 +1,18 @@
 {
-  "friendlyName": "owl-health-assistant",
+  "friendlyName": "deep-table-assistant",
   "logQueries": true,
-  "uniqueName": "owl-health-assistant",
+  "uniqueName": "deep-table-assistant",
   "fallbackActions": {
     "actions": [
       {
-        "redirect": "task://make-appointment"
+        "redirect": "task://get-specials"
       }
     ]
   },
   "initiationActions": {
     "actions": [
       {
-        "redirect": "task://make-appointment"
+        "redirect": "task://get-specials"
       }
     ]
   },
@@ -45,9 +45,12 @@
   ],
   "intents": [
     {
-      "uniqueName": "make-appointment",
+      "uniqueName": "get-specials",
       "actions": {
         "actions": [
+          {
+            "say": "Todays special is duck confit with roasted brussel sprouts"
+          },
           {
             "fetch_actions": {
               "uri": "https://inquisitive-stretch-2083.twil.io/assistant-stub"
@@ -84,31 +87,47 @@
       "samples": [
         {
           "language": "en-US",
-          "taggedText": "make an appointment for {AppointmentDate} at {AppointmentTime}"
+          "taggedText": "What's today's specials?"
         },
         {
           "language": "en-US",
-          "taggedText": "schedule an on {AppointmentDate} at {AppointmentTime}"
+          "taggedText": "what is the special today"
         },
         {
           "language": "en-US",
-          "taggedText": "{AppointmentDate} at {AppointmentTime}"
+          "taggedText": "do you have a special today"
         },
         {
           "language": "en-US",
-          "taggedText": "{AppointmentTime} on {AppointmentDate}"
+          "taggedText": "what do you have for special today"
         },
         {
           "language": "en-US",
-          "taggedText": "{FirstName} {Last Name}"
+          "taggedText": "I want today's special"
         },
         {
           "language": "en-US",
-          "taggedText": "{Email}"
+          "taggedText": "dinner special"
         },
         {
           "language": "en-US",
-          "taggedText": "{Phone}"
+          "taggedText": "today's special"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "get today's special"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "Can you tell me what's the special today"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "are there any specials"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "specials"
         }
       ]
     },
