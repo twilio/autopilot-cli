@@ -2,6 +2,7 @@ const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
 
+//TODO: finish the help screen
 const menus = {
   main: `Twilio Assistant Generator (TAG)
   Usage:

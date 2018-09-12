@@ -6,14 +6,11 @@ module.exports = async (args) => {
 
   try {
 
-    //const assistant = await tag.getAssistants()
+    const sid = args.assistant
 
     spinner.stop()
 
-    // assistants
-    //   .each(assistants => {
-    //     console.log(`${assistants.sid} ${assistants.uniqueName}`)
-    //   });
+    //TODO: finish the export command
 
     console.log(`This command is not implemented yet.`)
 

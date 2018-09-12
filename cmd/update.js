@@ -6,14 +6,11 @@ module.exports = async (args) => {
 
   try {
 
-    //const assistant = await tag.getAssistants()
+    const schema = args.schema
 
     spinner.stop()
 
-    // assistants
-    //   .each(assistants => {
-    //     console.log(`${assistants.sid} ${assistants.uniqueName}`)
-    //   });
+    //TODO: implement update command
 
     console.log(`This command is not implemented yet.`)
 

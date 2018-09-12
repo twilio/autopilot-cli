@@ -2,7 +2,7 @@ const ora = require('ora')
 const tag = require('../lib/tag');
 
 module.exports = async (args) => {
-  const spinner = ora().start()
+  const spinner = ora().start('Getting assistants...')
 
   try {
 

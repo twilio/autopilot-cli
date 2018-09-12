@@ -6,10 +6,10 @@ A command line interface for creating and managing Twilio assistants.
 
 ```
 Usage:
-  tag config --account <account-sid> --token <auth-token> [--profile <name>]
+  tag init --account <account-sid> --token <auth-token> [--profile <name>]
   tag list [--profile <name>]
   tag create [--template] [--url <url>] [--profile <name>]
-  tag create --schema <file> [--profile <name>]
+  tag create [--name <assistant-name>] [--schema <file>] [--profile <profile-name>]
   tag update --schema <file> [--profile <name>]
   tag delete --assistant <assistant-sid> [--profile <name>]
   tag export --assistant <assistant-sid> [--profile <name>]
@@ -24,7 +24,7 @@ Options:
   --assistant           Twilio Assistant SID
 ```
 ## Installation
-The Twilio Assistant CLI (aka: TAG) will eventually be available publicly via NPM. However, while it's in development, the installation process is:
+The Twilio Assistant Generator CLI (aka: TAG CLI) will eventually be available publicly via NPM. However, while it's in development, the installation process is:
 
  1. Clone this git repo
  2. `cd` into the project root directory
@@ -48,7 +48,6 @@ config.twilio.authToken = "<replace-with-auth-token>";
 
 module.exports = config;
 ```
-
 
 ## Templates 
 Templates are used as a simple starting point for creating new assistants. If the `--template` option is provided with the `create` command, you'll be prompted to select a template. If the `create` command is used without any options, the default 'hello-world' template is used.
