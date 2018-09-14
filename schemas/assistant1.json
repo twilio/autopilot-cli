@@ -1,0 +1,196 @@
+{
+  "assistantSid": "UAe486bc737ccf301840a6ba459360b371",
+  "friendlyName": "A new assistant",
+  "logQueries": false,
+  "uniqueName": "another-assistant",
+  "fallbackActions": {
+    "actions": [
+      {
+        "redirect": "task://say-hello"
+      }
+    ]
+  },
+  "initiationActions": {
+    "actions": [
+      {
+        "redirect": "task://say-hello"
+      }
+    ]
+  },
+  "fieldTypes": [
+    {
+      "uniqueName": "COLORS",
+      "values": [
+        {
+          "language": "en-US",
+          "value": "red",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "yellow",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "blue",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "green",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "brown",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "black",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "white",
+          "synonymOf": ""
+        },
+        {
+          "language": "en-US",
+          "value": "gray",
+          "synonymOf": ""
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "uniqueName": "say-hello",
+      "actions": {
+        "actions": [
+          {
+            "say": {
+              "speech": "Hello there! What is your name?"
+            }
+          },
+          {
+            "listen": true
+          }
+        ]
+      },
+      "fields": [
+        {
+          "uniqueName": "firstName",
+          "fieldType": "Twilio.FIRST_NAME"
+        }
+      ],
+      "samples": [
+        {
+          "language": "en-US",
+          "taggedText": "my name is {firstName}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "I'm {firstName}"
+        }
+      ]
+    },
+    {
+      "uniqueName": "modify-appointment",
+      "actions": {
+        "actions": [
+          {
+            "fetch_actions": {
+              "uri": "https://inquisitive-stretch-2083.twil.io/assistant-stub"
+            }
+          }
+        ]
+      },
+      "fields": [
+        {
+          "uniqueName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        },
+        {
+          "uniqueName": "AppointmentDate",
+          "fieldType": "Twilio.DATE"
+        },
+        {
+          "uniqueName": "AppointmentTime",
+          "fieldType": "Twilio.TIME"
+        }
+      ],
+      "samples": [
+        {
+          "language": "en-US",
+          "taggedText": "modify appointment {AppointmentId}"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "change my appointment"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "reschedule my appointment"
+        }
+      ]
+    },
+    {
+      "uniqueName": "confirm-appointment",
+      "actions": {
+        "actions": [
+          {
+            "fetch_actions": {
+              "uri": "https://inquisitive-stretch-2083.twil.io/assistant-stub"
+            }
+          }
+        ]
+      },
+      "fields": [
+        {
+          "uniqueName": "AppointmentId",
+          "fieldType": "Twilio.NUMBER"
+        }
+      ],
+      "samples": [
+        {
+          "language": "en-US",
+          "taggedText": "confirm my appointment"
+        },
+        {
+          "language": "en-US",
+          "taggedText": "i need to confirm my appointment number {AppointmentId}"
+        }
+      ]
+    },
+    {
+      "uniqueName": "ask-question",
+      "actions": {
+        "actions": [
+          {
+            "fetch_actions": {
+              "uri": "https://inquisitive-stretch-2083.twil.io/assistant-stub"
+            }
+          }
+        ]
+      },
+      "fields": [
+        {
+          "uniqueName": "Email",
+          "fieldType": "Twilio.Email"
+        },
+        {
+          "uniqueName": "YesNo",
+          "fieldType": "YES_NO"
+        }
+      ],
+      "samples": [
+        {
+          "language": "en-US",
+          "taggedText": "i have a question"
+        }
+      ]
+    }
+  ]
+}

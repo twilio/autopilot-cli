@@ -7,24 +7,20 @@ module.exports = async (args) => {
     console.log(`The '--assistant' argument is required`)
     return
   }
-
   const spinner = ora().start()
 
   try {
-
     const sid = args.assistant
 
-    //do work here
+    const result = await tag.resetAssistant(sid)
 
     spinner.stop()
-
-    //return here
-    console.log(`Export is not implemented yet.`)
-
+    //TODO: maybe include name of deleted assistant
+    console.log(`Reset assistant with SID: ${args.assistant}`)
 
   } catch (err) {
     spinner.stop()
     
-    console.error(err)
+    console.error(`ERROR: ${err}`)
   }
 }

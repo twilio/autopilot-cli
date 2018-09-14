@@ -8,8 +8,7 @@ A command line interface for creating and managing Twilio assistants.
 Usage:
   tag init --account <account-sid> --token <auth-token> [--profile <name>]
   tag list [--profile <name>]
-  tag create [--template] [--url <url>] [--profile <name>]
-  tag create [--name <assistant-name>] [--schema <file>] [--profile <profile-name>]
+  tag create [--schema <file>] [--profile <profile-name>]
   tag update --schema <file> [--profile <name>]
   tag delete --assistant <assistant-sid> [--profile <name>]
   tag export --assistant <assistant-sid> [--profile <name>]
@@ -20,7 +19,6 @@ Options:
   --account             Twilio Account SID
   --token               Twilio Auth Token
   --schema              Assistant Schema File
-  --template            Default Template(s)
   --assistant           Twilio Assistant SID
 ```
 ## Installation

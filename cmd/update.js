@@ -1,18 +1,30 @@
+const path = require('path');
 const ora = require('ora')
 const tag = require('../lib/tag');
 
 module.exports = async (args) => {
+
+  if (!args.hasOwnProperty('schema')) {
+    console.log(`The '--schema' argument is required`)
+    return
+  }
+
+  const name = schema = args.schema,
+    profile = args.profile || "default"
+
+  let fullPath = `${path.resolve()}/${schema}` 
+
   const spinner = ora().start()
 
   try {
 
     const schema = args.schema
 
-    spinner.stop()
+    const assistant = await tag.updateAssistant(fullPath)
 
-    //TODO: implement update command
+    spinner.stop()   
 
-    console.log(`This command is not implemented yet.`)
+    console.log(`Assistant "${assistant.uniqueName}" was updated`)
 
   } catch (err) {
     spinner.stop()
