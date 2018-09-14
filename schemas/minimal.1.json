@@ -1,0 +1,29 @@
+{
+  "friendlyName": "minimal-assistant",
+  "logQueries": true,
+  "uniqueName": "minimal-assistant",
+  "fallbackActions": {
+    "actions": [
+      {
+        "say": {
+          "speech": "Hello there! What is your name?"
+        }
+      },
+      {
+        "listen": true
+      }
+    ]
+  },
+  "initiationActions": {
+    "actions": [
+      {
+        "say": {
+          "speech": "Hello there! What is your name?"
+        }
+      },
+      {
+        "listen": true
+      }
+    ]
+  }
+}

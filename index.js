@@ -2,6 +2,9 @@ const minimist = require('minimist')
 const error = require('./lib/error')
 
 module.exports = () => {
+
+  //TODO: check to see if CLI is configured
+  
   const args = minimist(process.argv.slice(2))
 
   let cmd = args._[0] || 'help'
@@ -15,6 +18,10 @@ module.exports = () => {
   }
 
   switch (cmd) {
+    case 'temp':
+      require('./cmd/temp')(args)
+      break
+
     case 'init':
       require('./cmd/init')(args)
       break
