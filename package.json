@@ -2,7 +2,7 @@
   "name": "@dabblelab/twilio-assistant-cli",
   "version": "1.0.0-alpha.1",
   "bin": {
-    "tag": "./bin/cli.js"
+    "ta": "./bin/cli.js"
   },
   "description": "",
   "main": "index.js",

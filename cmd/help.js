@@ -4,7 +4,7 @@ const figlet = require('figlet');
 
 //TODO: finish the help screen
 const menus = {
-  main: `Twilio Assistant Generator (TAG)
+  main: `Twilio Assistant CLI
   Usage:
     tag [command] <options>
     init ............... configure auth setting
@@ -39,7 +39,7 @@ module.exports = (args) => {
 
     console.log(
       chalk.red(
-        figlet.textSync('TAG', { horizontalLayout: 'full' })
+        figlet.textSync('Assistant', { horizontalLayout: 'full' })
       )
     )
 

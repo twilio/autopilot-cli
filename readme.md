@@ -6,12 +6,12 @@ A command line interface for creating and managing Twilio assistants.
 
 ```
 Usage:
-  tag init --account <account-sid> --token <auth-token> [--profile <name>]
-  tag list [--profile <name>]
-  tag create [--schema <file>] [--profile <profile-name>]
-  tag update --schema <file> [--profile <name>]
-  tag delete --assistant <assistant-sid> [--profile <name>]
-  tag export --assistant <assistant-sid> [--profile <name>]
+  ta init --account <account-sid> --token <auth-token> [--profile <name>]
+  ta list [--profile <name>]
+  ta create [--schema <file>] [--profile <profile-name>]
+  ta update --schema <file> [--profile <name>]
+  ta delete --assistant <assistant-sid> [--profile <name>]
+  ta export --assistant <assistant-sid> [--profile <name>]
 
 Options:
   -h --help             Help Screen
@@ -22,7 +22,7 @@ Options:
   --assistant           Twilio Assistant SID
 ```
 ## Installation
-The Twilio Assistant Generator CLI (aka: TAG CLI) will eventually be available publicly via NPM. However, while it's in development, the installation process is:
+The Twilio Assistant CLI will eventually be available publicly via NPM. However, while it's in development, the installation process is:
 
  1. Clone this git repo
  2. `cd` into the project root directory
