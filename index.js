@@ -51,7 +51,6 @@ module.exports = () => {
       break
 
     case 'help':
-
       require('./cmd/help')(args)
       break
 

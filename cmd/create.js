@@ -1,6 +1,6 @@
 const path = require('path');
 const ora = require('ora')
-const tag = require('../lib/tag');
+const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
@@ -18,7 +18,7 @@ module.exports = async (args) => {
 
   try {
 
-    const assistant = await tag.createAssistantFully(fullPath)
+    const assistant = await ta.createAssistantFully(fullPath)
 
     spinner.stop()   
 

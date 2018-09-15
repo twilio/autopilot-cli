@@ -1,5 +1,5 @@
 const ora = require('ora')
-const tag = require('../lib/tag');
+const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 

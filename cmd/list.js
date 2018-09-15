@@ -1,12 +1,12 @@
 const ora = require('ora')
-const tag = require('../lib/tag');
+const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
   const spinner = ora().start('Getting assistants...')
 
   try {
 
-    const assistants = await tag.getAssistants()
+    const assistants = await ta.listAssistants()
 
     spinner.stop()
 

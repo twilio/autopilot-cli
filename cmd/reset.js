@@ -1,5 +1,5 @@
 const ora = require('ora')
-const tag = require('../lib/tag');
+const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
@@ -12,7 +12,7 @@ module.exports = async (args) => {
   try {
     const sid = args.assistant
 
-    const result = await tag.resetAssistant(sid)
+    const result = await ta.resetAssistant(sid)
 
     spinner.stop()
     //TODO: maybe include name of deleted assistant

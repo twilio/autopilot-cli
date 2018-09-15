@@ -1,5 +1,5 @@
 const ora = require('ora')
-const tag = require('../lib/tag');
+const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
@@ -15,7 +15,6 @@ module.exports = async (args) => {
     const sid = args.assistant
 
     //do work here
-
     spinner.stop()
 
     //return here
