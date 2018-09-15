@@ -6,7 +6,7 @@ const figlet = require('figlet');
 const menus = {
   main: `Twilio Assistant CLI
   Usage:
-    tag [command] <options>
+    ta [command] <options>
     init ............... configure auth setting
     list ............... list existing assistants
     create ............. create a new assistant
@@ -17,12 +17,12 @@ const menus = {
     help ............... get help menu for a command`,
 
   list: `  Usage:
-    tag list <options>
+    ta list <options>
   Options:
     --profile, -p ...... [optional] profile name`,
 
   create: `  Usage:
-    tag create <options>
+    ta create <options>
   Options:
     --template, -t ..... [optional] use a template
     --url, -u .......... [optional] template list url
