@@ -1,7 +1,7 @@
 {
-  "friendlyName": "sandbox-assistant",
+  "friendlyName": "sandbox-test-assistant",
   "logQueries": true,
-  "uniqueName": "sandbox-assistant",
+  "uniqueName": "sandbox-test-assistant",
   "types": [
     {
       "uniqueName": "QUESTION",
