@@ -1,25 +1,24 @@
 const ora = require('ora')
 const ta = require('../lib/twilio-assistant');
+const files = require('../lib/files');
 
 module.exports = async (args) => {
-
-  if (!args.hasOwnProperty('assistant')) {
-    console.log(`The '--assistant' argument is required`)
-    return
-  }
-
-  const spinner = ora().start()
+  const spinner = ora().start('Exporting assistant...')
 
   try {
 
     const sid = args.assistant
+    //console.log(sid);
+    //const assistant = await ta.exportAssistant(sid);
+    const filename = await files.createAssistantJSONFile(sid);
+    const assistant = await ta.exportAssistant(sid,filename);
 
-    //do work here
     spinner.stop()
 
-    //return here
-    console.log(`Export is not implemented yet.`)
+    console.log(`File exported in ${filename}`);
 
+    //TODO: finish the export command
+    //console.log(assistant);
 
   } catch (err) {
     spinner.stop()
