@@ -14,18 +14,18 @@ module.exports = async (args) => {
 
   let fullPath = `${path.resolve()}/${schema}` 
 
-  const spinner = ora().start('Creating assistant...')
+  //const spinner = ora().start('Creating assistant...')
 
   try {
 
     const assistant = await ta.createAssistantFully(fullPath)
 
-    spinner.stop()   
+    //spinner.stop()   
 
     console.log(`Assistant "${assistant.uniqueName}" was created`)
     
   } catch (err) {
-    spinner.stop()
+    //spinner.stop()
 
     console.error(`ERROR: ${err.message}`)
   }
