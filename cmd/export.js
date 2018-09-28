@@ -11,7 +11,8 @@ module.exports = async (args) => {
     //console.log(sid);
     //const assistant = await ta.exportAssistant(sid);
     //const filename = await files.createAssistantJSONFile(sid);
-    const assistant = await ta.exportAssistant();
+    const profile = args.profile || "default"
+    const assistant = await ta.exportAssistant(profile);
 
     spinner.stop()
 

@@ -18,7 +18,7 @@ module.exports = async (args) => {
 
   try {
 
-    const assistant = await ta.createAssistantFully(fullPath)
+    const assistant = await ta.createAssistantFully(fullPath,profile)
 
     //spinner.stop()   
 

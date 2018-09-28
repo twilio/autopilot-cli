@@ -20,7 +20,7 @@ module.exports = async (args) => {
 
     const schema = args.schema
 
-    const assistant = await ta.updateAssistant(fullPath)
+    const assistant = await ta.updateAssistant(fullPath,profile)
 
     spinner.stop()   
 
