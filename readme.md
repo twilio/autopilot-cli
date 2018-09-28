@@ -33,19 +33,9 @@ NOTE: To uninstall/unlink, run `$ sudo npm unlink`
 ## Configuration
 Before using the CLI it needs to be configured with with a valid Twilio Account SID and Auth Token. Optionally, multiple accounts can be configured using the `--profile` option to associate an Account SID and Auth Token with a profile name. 
 
-### Manually creating a config.js file
-You can manually create a config.js file in the project root directory. Copy and past the following code and set the account SID and token.
+To configure the CLI with your Twilio credentials run the following command: `$ ta init`
 
-```javascript
-const config = {};
-
-// twilio config
-config.twilio = {};
-config.twilio.accountSid = "<replace-with-account-sid>";
-config.twilio.authToken = "<replace-with-auth-token>";
-
-module.exports = config;
-```
+The first set of credentials you provide will become your 'default' profile. You can add additional profiles or update an existing profile by running the following command: `$ ta init --profile test-profile` (where 'test-profile' the the profile name you'd like to add/update).
 
 ## Templates 
 Templates are used as a simple starting point for creating new assistants. If the `--template` option is provided with the `create` command, you'll be prompted to select a template. If the `create` command is used without any options, the default 'hello-world' template is used.
