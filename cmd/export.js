@@ -1,9 +1,9 @@
-const ora = require('ora')
+
 const ta = require('../lib/twilio-assistant');
 const files = require('../lib/files');
 
 module.exports = async (args) => {
-  const spinner = ora().start(`Exporting assistant...`)
+  //const spinner = ora().start(`Exporting assistant...`)
 
   try {
 
@@ -14,7 +14,7 @@ module.exports = async (args) => {
     const profile = args.profile || "default"
     const assistant = await ta.exportAssistant(profile);
 
-    spinner.stop()
+    //spinner.stop()
 
     //console.log(`File exported in ${filename}`);
 
@@ -22,7 +22,7 @@ module.exports = async (args) => {
     //console.log(assistant);
 
   } catch (err) {
-    spinner.stop()
+    //spinner.stop()
     
     console.error(err)
   }
