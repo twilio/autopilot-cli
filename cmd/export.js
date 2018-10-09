@@ -13,10 +13,6 @@ module.exports = async (args) => {
 
   try {
 
-    //const sid = args.assistant
-    //console.log(sid);
-    //const assistant = await ta.exportAssistant(sid);
-    //const filename = await files.createAssistantJSONFile(sid);
     const profile = args.profile || "default"
 
     const client = await require('../lib/twilio-assistant/client')(profile);
@@ -41,12 +37,11 @@ module.exports = async (args) => {
               }
             ]).then(async (answer) => {
               let seletedAssistant = answer.assistantName
-  
-              //const f_index = await _.findIndex(assistants, { uniqueName: seletedAssistant }),
-                //sel_assistant = assistants[f_index];
               
+                spinner.text = `Exporting assistant...`;
                 const assistant = await ta.exportAssistant(seletedAssistant,profile);
                 console.log(`File exported in ${assistant.filename}`);
+                await spinner.stop();
             })
           }
         }
@@ -57,14 +52,9 @@ module.exports = async (args) => {
       
     })
 
-    //console.log(`File exported in ${filename}`);
-
-    //TODO: finish the export command
-    //console.log(assistant);
-
   } catch (err) {
     spinner.stop()
     
-    console.error(err)
+    console.error(`ERROR: ${err}`)
   }
 }

@@ -14,7 +14,7 @@ module.exports = async (args) => {
 
   let fullPath = `${path.resolve()}/${schema}` 
 
-  //const spinner = ora().start()
+  const spinner = ora().start('Updating assistant...')
 
   try {
 
@@ -22,13 +22,12 @@ module.exports = async (args) => {
 
     const assistant = await ta.updateAssistant(fullPath,profile)
 
-    //spinner.stop()   
+    spinner.stop()   
 
     console.log(`\nAssistant "${assistant.uniqueName}" was updated`)
 
   } catch (err) {
-    //spinner.stop()
-    
-    console.error(err)
+    spinner.stop()
+    console.error(`ERROR: ${err}`)
   }
 }
