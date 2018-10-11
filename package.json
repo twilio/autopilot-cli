@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 1000000",
+    "test": "mocha --timeout 1000000 --reporter spec",
     "preinstall": "node check-version.js"
   },
   "repository": {
