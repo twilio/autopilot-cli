@@ -9,7 +9,7 @@ const ora = require('ora');
 
 module.exports = async (args) => {
 
-  const spinner = await ora().start(`Getting assistant List...\n`)
+  let spinner = await ora().start(`Getting assistant List...\n`)
 
   try {
 
@@ -18,7 +18,7 @@ module.exports = async (args) => {
     const client = await require('../lib/twilio-assistant/client')(profile);
 
 
-    await client.preview.understand
+    await client.autopilot
     .assistants
     .list().then((assistants) => {
 
@@ -37,11 +37,12 @@ module.exports = async (args) => {
               }
             ]).then(async (answer) => {
               let seletedAssistant = answer.assistantName
-              
-                spinner.text = `Exporting assistant...`;
+
+                spinner = ora().start(`Exporting assistant...`);
                 const assistant = await ta.exportAssistant(seletedAssistant,profile);
-                console.log(`File exported in ${assistant.filename}`);
                 await spinner.stop();
+                console.log(`\nFile exported in ${assistant.filename}`);
+                
             })
           }
         }

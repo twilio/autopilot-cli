@@ -1,206 +1,208 @@
 {
-  "friendlyName" : "unit-test-assistant",
-  "logQueries" : true,
-  "uniqueName" : "unit-test-assistant",
-  "fallbackActions" : {
-    "actions" : [
-      {
-          "redirect" : "task://welcome-user"
-      }
-  ]
-  },
-  "initiationActions" : {
-      "actions" : [
-          {
-              "redirect" : "task://welcome-user"
-          }
-      ]
-  },
-  "fieldTypes" : [
-      {
-          "uniqueName" : "question_type",
-          "values" : [
-              {
-                  "language" : "en-US",
-                  "value" : "WellCare",
-                  "synonymOf" : ""
-              },
-              {
-                  "language" : "en-US",
-                  "value" : "Blue Cross",
-                  "synonymOf" : ""
-              },
-              {
-                  "language" : "en-US",
-                  "value" : "Anthem",
-                  "synonymOf" : ""
-              }
-          ]
-      }
-  ],
-  "tasks" : [
-      {
-          "uniqueName" : "confirm-appointment",
-          "actions" : {
-              "actions" : [
-                  {
-                      "fetch_actions" : {
-                          "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
-                      }
-                  }
-              ]
-          },
-          "fields" : [],
-          "samples" : [
-              {
-                  "language" : "en-US",
-                  "taggedText" : "I would like to confirm my appointment"
-              }
-          ]
-      },
-      {
-          "uniqueName" : "make-appointment",
-          "actions" : {
-              "actions" : [
-                  {
-                      "fetch_actions" : {
-                          "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
-                      }
-                  }
-              ]
-          },
-          "fields" : [],
-          "samples" : [
-              {
-                  "language" : "en-US",
-                  "taggedText" : "I want to book an appointment"
-              }
-          ]
-      },
-      {
-          "uniqueName" : "cancel-appointment",
-          "actions" : {
-              "actions" : [
-                  {
-                      "fetch_actions" : {
-                          "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
-                      }
-                  }
-              ]
-          },
-          "fields" : [],
-          "samples" : [
-              {
-                  "language" : "en-US",
-                  "taggedText" : "I need to cancel my appointment"
-              }
-          ]
-      },
-      {
-          "uniqueName" : "modify-appointment",
-          "actions" : {
-              "actions" : [
-                  {
-                      "fetch_actions" : {
-                          "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
-                      }
-                  }
-              ]
-          },
-          "fields" : [],
-          "samples" : [
-              {
-                  "language" : "en-US",
-                  "taggedText" : "I need to change my appointment"
-              }
-          ]
-      },
-      {
-          "uniqueName" : "welcome-user",
-          "actions" : {
-              "actions" : [
-                  {
-                      "fetch_actions" : {
-                          "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
-                      }
-                  }
-              ]
-          },
-          "fields" : [],
-          "samples" : [
-              {
-                  "language" : "en-US",
-                  "taggedText" : "hey"
-              },
-              {
-                  "language" : "en-US",
-                  "taggedText" : "hi"
-              },
-              {
-                  "language" : "en-US",
-                  "taggedText" : "hello"
-              }
-          ]
-      },
-      {
-        "uniqueName": "ask-question",
-        "actions" : {
-            "actions" : [
+    "friendlyName" : "unit-test-assistant",
+    "logQueries" : true,
+    "uniqueName" : "unit-test-assistant",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://welcome-user",
+            "fallback" : "task://welcome-user",
+            "collect" : {
+                "validate_on_failure" : "task://welcome-user"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "voice" : {
+                "say_voice" : "Polly.Salli"
+            }
+        }
+    },
+    "fieldTypes" : [
+        {
+            "uniqueName" : "question_type",
+            "values" : [
                 {
-                    "fetch_actions" : {
-                        "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                    "language" : "en-US",
+                    "value" : "WellCare",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Blue Cross",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Anthem",
+                    "synonymOf" : null
+                }
+            ]
+        }
+    ],
+    "tasks" : [
+        {
+            "uniqueName" : "confirm-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
                     }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to confirm my appointment"
                 }
             ]
         },
-        "fields": [
-          {
-            "uniqueName": "question",
-            "fieldType": "question_type"
-          }
-        ],
-        "samples": [
-            {
-                "language" : "en-US",
-                "taggedText" : "Do you accept {question} insurance coverage?"
-            }
-        ]
-      },
-      {
-        "uniqueName" : "schedule-check-appointment",
-        "actions" : {
-            "actions" : [
-                {
-                    "fetch_actions" : {
-                        "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+        {
+            "uniqueName" : "make-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
                     }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to book an appointment"
                 }
             ]
         },
-        "fields" : [
-            {
-                "uniqueName" : "AppointmentId",
-                "fieldType" : "Twilio.NUMBER"
+        {
+            "uniqueName" : "cancel-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
+                    }
+                ]
             },
-            {
-                "uniqueName" : "AppointmentTime",
-                "fieldType" : "Twilio.TIME"
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I need to cancel my appointment"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "modify-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
+                    }
+                ]
             },
-            {
-                "uniqueName" : "AppointmentDate",
-                "fieldType" : "Twilio.DATE"
-            }
-        ],
-        "samples" : [
-            {
-                "language" : "en-US",
-                "taggedText" : "{AppointmentDate} at {AppointmentTime}"
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I need to change my appointment"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "welcome-user",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
+                    }
+                ]
             },
-            {
-                "language" : "en-US",
-                "taggedText" : "{AppointmentId}"
-            }
-        ]
-    }
-  ]
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "ask-question",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
+                    }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "question",
+                    "fieldType" : "question_type"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Do you accept {question} insurance coverage?"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "schedule-check-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "fetch_actions" : {
+                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        }
+                    }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "AppointmentId",
+                    "fieldType" : "Twilio.NUMBER"
+                },
+                {
+                    "uniqueName" : "AppointmentTime",
+                    "fieldType" : "Twilio.TIME"
+                },
+                {
+                    "uniqueName" : "AppointmentDate",
+                    "fieldType" : "Twilio.DATE"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{AppointmentDate} at {AppointmentTime}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{AppointmentId}"
+                }
+            ]
+        }
+    ]
 }

@@ -30,7 +30,7 @@
     "minimist": "^1.2.0",
     "ora": "^3.0.0",
     "pretty-json-stringify": "0.0.2",
-    "twilio": "^3.19.2"
+    "twilio": "^3.23.0"
   },
   "devDependencies": {
     "chai": "*",
