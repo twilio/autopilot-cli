@@ -1,26 +1,24 @@
-const ora = require('ora')
+const ora = require('ora');
+const inquirer = require('inquirer');
+
 const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
-  if (!args.hasOwnProperty('account') && !args.hasOwnProperty('token')) {
-    console.log(`The '--account' and '--token' arguments are required`)
+  if (args.hasOwnProperty('profile') && args.profile === true) {
+    console.log(`The '--profile <profile>' arguments are required`)
     return
   }
-
   const spinner = ora().start()
 
   try {
-
-    const sid = args.account,
-          token = args.token,
-          profile = args.profile
+    
+    ta.initConfig(args);
 
     spinner.stop()
 
     //TODO: implement init command
 
-    console.log(`This command is not implemented yet.`)
 
   } catch (err) {
     spinner.stop()

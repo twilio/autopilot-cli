@@ -1,13 +1,14 @@
 {
   "name": "@dabblelab/twilio-assistant-cli",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.4",
   "bin": {
     "ta": "./bin/cli.js"
   },
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --timeout 1000000 --reporter spec",
+    "preinstall": "node check-version.js"
   },
   "repository": {
     "type": "git",
@@ -23,16 +24,19 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
-    "figlet": "^1.2.0",
+    "figlet": "^1.2.1",
     "inquirer": "^6.2.0",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "ora": "^3.0.0",
     "pretty-json-stringify": "0.0.2",
-    "twilio": "^3.19.2"
+    "twilio": "^3.23.0"
   },
   "devDependencies": {
-    "chai": "*",
+    "chai": "^4.2.0",
     "mocha": "*"
+  },
+  "engines": {
+    "node": ">=8.10.0"
   }
 }

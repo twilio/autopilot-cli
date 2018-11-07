@@ -7,16 +7,19 @@ module.exports = async (args) => {
     console.log(`The '--assistant' argument is required`)
     return
   }
-  const spinner = ora().start()
+
+  const spinner = ora().start('Deleting assistant...')
 
   try {
-    const sid = args.assistant
+    const sid = args.assistant,
+          profile = args.profile || "default";
 
-    const result = await ta.deleteAssistantFully(sid)
+    const recovery_schema = await ta.exportAssistant(sid, profile, true);
+    const result = await ta.deleteAssistantFully(sid,profile)
 
     spinner.stop()
     //TODO: maybe include name of deleted assistant
-    console.log(`Removed assistant with SID: ${args.assistant}`)
+    console.log(`\nRemoved assistant with SID: ${args.assistant}`)
 
   } catch (err) {
     spinner.stop()
