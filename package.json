@@ -24,7 +24,7 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
-    "figlet": "^1.2.0",
+    "figlet": "^1.2.1",
     "inquirer": "^6.2.0",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
@@ -33,7 +33,7 @@
     "twilio": "^3.23.0"
   },
   "devDependencies": {
-    "chai": "*",
+    "chai": "^4.2.0",
     "mocha": "*"
   },
   "engines": {
