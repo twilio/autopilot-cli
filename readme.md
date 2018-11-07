@@ -1,6 +1,19 @@
-Twilio Assistant CLI
-========
-A command line interface for creating and managing Twilio assistants.
+Twilio Autopilot CLI (Experimental)
+====================================
+A command line interface for creating and managing Twilio Autopilot.
+
+This software is in pre-release status and not currently supported. We are looking for community feedback on what type of CLI tool would be the most useful for Twilio users.
+
+## About Twilio Autopilot
+Twilio Autopilot is a conversational AI platform to build bots and virtual assistants that can be deployed across messaging channels such as SMS, Whatsapp, FB Messeger or Slack, telephony IVRs (Interactive Voice Response), or Home assistants such as Alexa and Google Assistant.
+
+You can learn more about Twilio Autopilot here:
+
+[Twilio Autopilot documentation](https://www.twilio.com/docs/autopilot)
+
+[Twilio Autopilot website](https://www.twilio.com/autopilot)
+
+[Twilio Autopilot Quest mission (Hands on learning)](https://www.twilio.com/quest/mission/30)
 
 ## General Usage
 
@@ -22,7 +35,7 @@ Options:
   --assistant           Twilio Assistant SID
 ```
 ## Installation
-The Twilio Assistant CLI will eventually be available publicly via NPM. However, while it's in development, the installation process is:
+The Twilio Autopilot CLI will eventually be available publicly via NPM. However, while it's in development, the installation process is:
 
  1. Clone this git repo
  2. `cd` into the project root directory
@@ -31,9 +44,9 @@ The Twilio Assistant CLI will eventually be available publicly via NPM. However,
 NOTE: To uninstall/unlink, run `$ sudo npm unlink`
 
 ## Configuration
-Before using the CLI it needs to be configured with with a valid Twilio Account SID and Auth Token. Optionally, multiple accounts can be configured using the `--profile` option to associate an Account SID and Auth Token with a profile name. 
+To use the Twilio Autopilot CLI, you first need to configure your Twilio Account SID and Auth Token. Optionally, multiple accounts can be configured using the `--profile` option to associate an Account SID and Auth Token with a profile name. 
 
-To configure the CLI with your Twilio credentials run the following command: `$ ta init`
+To configure the CLI with your Twilio credentials run the following command: `$ ta init`. Credentials will be saved in a local JSON file in `~/.twilio/config.json`.
 
 The first set of credentials you provide will become your 'default' profile. You can add additional profiles or update an existing profile by running the following command: `$ ta init --profile test-profile` (where 'test-profile' the the profile name you'd like to add/update).
 
