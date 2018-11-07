@@ -1,19 +1,4 @@
 Twilio Autopilot CLI (Experimental)
-====================================
-A command line interface for creating and managing Twilio Autopilot.
-
-This software is in pre-release status and not currently supported. We are looking for community feedback on what type of CLI tool would be the most useful for Twilio users.
-
-## About Twilio Autopilot
-Twilio Autopilot is a conversational AI platform to build bots and virtual assistants that can be deployed across messaging channels such as SMS, Whatsapp, FB Messeger or Slack, telephony IVRs (Interactive Voice Response), or Home assistants such as Alexa and Google Assistant.
-
-You can learn more about Twilio Autopilot here:
-
-[Twilio Autopilot documentation](https://www.twilio.com/docs/autopilot)
-
-[Twilio Autopilot website](https://www.twilio.com/autopilot)
-
-[Twilio Autopilot Quest mission (Hands on learning)](https://www.twilio.com/quest/mission/30)
 
 ## General Usage
 
@@ -31,8 +16,8 @@ Options:
   -v --version          CLI Version
   --account             Twilio Account SID
   --token               Twilio Auth Token
-  --schema              Assistant Schema File
-  --assistant           Twilio Assistant SID
+  --schema              Autopilot Schema File
+  --assistant           Twilio Autopilot Assistant SID
 ```
 ## Installation
 The Twilio Autopilot CLI will eventually be available publicly via NPM. However, while it's in development, the installation process is:
@@ -54,4 +39,4 @@ The first set of credentials you provide will become your 'default' profile. You
 Templates are used as a simple starting point for creating new assistants. If the `--template` option is provided with the `create` command, you'll be prompted to select a template. If the `create` command is used without any options, the default 'hello-world' template is used.
 
 ## Schema Files
-A schema file is a JSON document that's used to define an assistant. They tell the CLI what to create or update. Templates are pre-defined schema files. So, templates can be used as a starting point for creating a new schema or to create custom templates.
+A schema file is a JSON document that's used to define an Autopilot assistant. They tell the CLI what to create or update. Templates are pre-defined schema files. So, templates can be used as a starting point for creating a new schema or to create custom templates.
