@@ -10,7 +10,7 @@ Usage:
   ta create [--schema <file>] [--profile <profile-name>]
   ta update --schema <file> [--profile <name>]
   ta delete --assistant <assistant-sid> [--profile <name>]
-  ta export --assistant <assistant-sid> [--profile <name>]
+  ta export [--profile <name>]
 
 Options:
   -h --help             Help Screen
