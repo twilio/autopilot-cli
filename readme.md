@@ -1,16 +1,16 @@
 Twilio Autopilot CLI (Experimental)
 ===
 
-## General Usage
+## Usage
 
 ```
 Usage:
-  ta init --account <account-sid> --token <auth-token> [--profile <name>]
+  ta init [--profile <name>]
   ta list [--profile <name>]
   ta create [--schema <file>] [--profile <profile-name>]
+  ta export [--profile <name>]
   ta update --schema <file> [--profile <name>]
   ta delete --assistant <assistant-sid> [--profile <name>]
-  ta export [--profile <name>]
 
 Options:
   -h --help             Help Screen
