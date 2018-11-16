@@ -1,10 +1,10 @@
 {
-  "name": "@dabblelab/twilio-assistant-cli",
+  "name": "@twilio/autopilot-cli",
   "version": "1.0.0-alpha.4",
   "bin": {
     "ta": "./bin/cli.js"
   },
-  "description": "",
+  "description": "Twilio Autopilot Command Line Interface",
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 1000000 --reporter spec",
@@ -12,15 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tingiris/twilio-assistant-cli.git"
+    "url": "git+https://github.com/twilio/autopilot-cli.git
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["twilio, bots, conversational-ai, bot-development, virtual-assistant, bot-platform, bot-api, bot-cli, alexa-cli, google-assistant-cli, ivr-cli"],
+  "author": "Twilio",
+  "preferGlobal": true,
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tingiris/twilio-assistant-cli/issues"
+    "url": "https://github.com/twilio/autopilot-cli/issues"
   },
-  "homepage": "https://github.com/tingiris/twilio-assistant-cli#readme",
+  "homepage": "https://github.com/twilio/autopilot-cli#readme",
   "dependencies": {
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
