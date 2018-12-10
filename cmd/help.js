@@ -19,14 +19,33 @@ const menus = {
   list: `  Usage:
     ta list <options>
   Options:
-    --profile, -p ...... [optional] profile name`,
+    --credentials, -c ...... [optional] credentials name`,
 
   create: `  Usage:
     ta create <options>
   Options:
-    --template, -t ..... [optional] use a template
-    --url, -u .......... [optional] template list url
-    --profile, -p ...... [optional] profile name`,
+    --schema, -s ........... Autopilot Schema File
+    --credentials, -c ...... [optional] credentials name`,
+
+  update: `  Usage:
+    ta update <options>
+  Options:
+    --schema, -s ........... Autopilot Schema File
+    --credentials, -c ...... [optional] credentials name`,
+
+  delete: `  Usage:
+    ta delete <options>
+  Options:
+    --assistant, -a ........ Twilio Autopilot Assistant SID
+    --credentials, -c ...... [optional] credentials name`,
+
+  export: `  Usage:
+    ta export <options>
+  Options:
+    --credentials, -c ...... [optional] credentials name`,
+
+  version: `  Usage:
+    ta version `,
 }
 
 module.exports = (args) => {

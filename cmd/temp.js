@@ -8,7 +8,7 @@ module.exports = async (args) => {
 
     //get args here
     const schema = args.schema,
-          profile = args.profile || "default";
+          profile = args.credentials || "default";
 
     const schemaPath = `${files.getCurrentDirectoryBase()}/${schema}`
 
