@@ -1,6 +1,6 @@
 {
   "name": "@twilio/autopilot-cli",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0",
   "bin": {
     "ta": "./bin/cli.js"
   },
