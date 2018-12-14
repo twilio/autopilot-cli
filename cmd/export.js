@@ -13,14 +13,15 @@ module.exports = async (args) => {
 
   try {
 
-    const profile = args.profile || "default"
+    const profile = args.credentials || "default"
 
-    const client = await require('../lib/twilio-assistant/client')(profile);
+    const client = await require('../lib/twilio-assistant/client')(profile),
+          resource = await require('../lib/twilio-assistant/resource');
 
 
     await client.autopilot
     .assistants
-    .list().then((assistants) => {
+    .list({ limit : resource.limit }).then((assistants) => {
 
       let choices = [];
       if(assistants.length){
@@ -47,8 +48,8 @@ module.exports = async (args) => {
           }
         }
       }else{
-        console.log('no assistants.');
         spinner.stop()
+        console.log('no assistants.');
       }
       
     })

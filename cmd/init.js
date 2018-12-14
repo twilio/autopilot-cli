@@ -5,8 +5,8 @@ const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
-  if (args.hasOwnProperty('profile') && args.profile === true) {
-    console.log(`The '--profile <profile>' arguments are required`)
+  if (args.hasOwnProperty('credentials') && args.credentials === true) {
+    console.log(`The '--credentials <credentials>' arguments are required`)
     return
   }
   const spinner = ora().start()
