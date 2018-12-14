@@ -12,7 +12,7 @@ module.exports = async (args) => {
 
   try {
     const sid = args.assistant,
-          profile = args.profile || "default";
+          profile = args.credentials || "default";
 
     const recovery_schema = await ta.exportAssistant(sid, profile, true);
     const result = await ta.deleteAssistantFully(sid,profile)
