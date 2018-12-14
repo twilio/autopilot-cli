@@ -11,7 +11,7 @@ module.exports = async (args) => {
 
   try {
     const sid = args.assistant,
-          profile = args.profile || "default";
+          profile = args.credentials || "default";
 
     const result = await ta.resetAssistant(sid,profile)
 

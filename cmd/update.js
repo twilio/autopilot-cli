@@ -10,7 +10,7 @@ module.exports = async (args) => {
   }
 
   const name = schema = args.schema,
-    profile = args.profile || "default"
+    profile = args.credentials || "default"
 
   let fullPath = `${path.resolve()}/${schema}` 
 

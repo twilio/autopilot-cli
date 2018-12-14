@@ -5,6 +5,7 @@ _tmp
 data
 config.js
 config-*.js
+test_sample.js
 
 # other stuff to ignore
 .DS_Store
