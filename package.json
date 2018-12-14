@@ -14,7 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/twilio/autopilot-cli.git"
   },
-  "keywords": ["twilio, bots, conversational-ai, bot-development, virtual-assistant, bot-platform, bot-api, bot-cli, alexa-cli, google-assistant-cli, ivr-cli"],
+  "keywords": [
+    "twilio, bots, conversational-ai, bot-development, virtual-assistant, bot-platform, bot-api, bot-cli, alexa-cli, google-assistant-cli, ivr-cli"
+  ],
   "author": "Twilio",
   "preferGlobal": true,
   "license": "MIT",
@@ -39,5 +41,9 @@
   },
   "engines": {
     "node": ">=8.10.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
