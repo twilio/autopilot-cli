@@ -15,13 +15,12 @@ module.exports = async (args) => {
 
     const profile = args.credentials || "default"
 
-    const client = await require('../lib/twilio-assistant/client')(profile),
-          resource = await require('../lib/twilio-assistant/resource');
+    const client = await require('../lib/twilio-assistant/client')(profile);
 
 
     await client.autopilot
     .assistants
-    .list({ limit : resource.limit }).then((assistants) => {
+    .list().then((assistants) => {
 
       let choices = [];
       if(assistants.length){
