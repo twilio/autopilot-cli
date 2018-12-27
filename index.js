@@ -46,6 +46,10 @@ module.exports = () => {
       require('./cmd/export')(args)
       break
 
+    case 'import':
+      require('./cmd/import')(args)
+      break
+
     case 'version':
       require('./cmd/version')(args)
       break

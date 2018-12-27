@@ -1,0 +1,428 @@
+{
+    "friendlyName" : "Twilio-Basic-Starter",
+    "logQueries" : true,
+    "uniqueName" : "Twilio-Basic-Starter",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://welcome-intent",
+            "fallback" : "task://fallback-Intent",
+            "collect" : {
+                "validate_on_failure" : "task://fallback-Intent"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "voice" : {
+                "say_voice" : "Polly.Salli"
+            }
+        }
+    },
+    "fieldTypes" : [
+        {
+            "uniqueName" : "Yes",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "Yes",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "ok",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "yeah",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "yes please",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "okay",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sounds correct",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "I think so",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "yes I agree",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "yes I do",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "I agree",
+                    "synonymOf" : "Yes"
+                }
+            ]
+        },
+        {
+
+            "uniqueName" : "No",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "No",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "no thanks",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Nothing for now",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Nope",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nothing",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "no maybe next time",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nah",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "no not really",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "na",
+                    "synonymOf" : "No"
+                }
+            ]
+        }
+    ],
+    "tasks" : [
+        {
+            "uniqueName" : "cancel-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, no problem! We will cancel your appointment. Have a great day."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to cancel my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to cancel my book"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel book"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to cancel my visit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel my visit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel an book"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "confirm-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! Thank you for confirming your appointment. See you soon and have a great day."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to confirm my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to confirm my booking"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm my book"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "fallback-Intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I didn't get that. Can you say it again?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "make-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! What day and time would be good for you?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to schedule an appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to book an appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to make an appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "book appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "schedule appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "make an appointment"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "manage-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! We will schedule your appointment. Would you a sms for your appointment detail?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "time",
+                    "fieldType" : "Twilio.TIME"
+                },
+                {
+                    "uniqueName" : "date",
+                    "fieldType" : "Twilio.DATE"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{date} at {time}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{time} on {date}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "modify-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! What day and time would be good for you to re-schedule your appointment?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to change my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to modify my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "change appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "modify appointment"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "no-intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay! We will see you soon. Have a great day."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "No",
+                    "fieldType" : "No"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{No}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "welcome-intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Hi! I am Virtual Assistant, with my help you can book, modify, confirm and cancel an appointment with doctor. How can I help you?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello hi"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "yes-intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, We will send you sms for your appointment. Have a great day."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "Yes",
+                    "fieldType" : "Yes"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{Yes}"
+                }
+            ]
+        }
+    ],
+    "modelBuild" : {
+        "uniqueName" : "Twilio-Basic-Starter"
+    }
+}

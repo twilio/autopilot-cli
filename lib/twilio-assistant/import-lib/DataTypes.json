@@ -1,0 +1,14 @@
+{
+    "@sys.given-name" : "Twilio.FIRST_NAME",
+    "@sys.last-name" : "Twilio.LAST_NAME",
+    "@sys.email" : "Twilio.EMAIL",
+    "@sys.phone-number" : "Twilio.PHONE_NUMBER",
+    "@sys.language" : "Twilio.LANGUAGES",
+    "@sys.number" : "Twilio.NUMBER",
+    "@sys.date" : "Twilio.DATE",
+    "@sys.time" : "Twilio.TIME",
+    "@sys.currency-name" : "Twilio.CURRENCY",
+    "@sys.geo-country" : "Twilio.COUNTRY",
+    "@sys.geo-state" : "Twilio.US_STATE",
+    "@sys.geo-city" : "Twilio.CITY"
+}
