@@ -44,6 +44,13 @@ const menus = {
   Options:
     --credentials, -c ...... [optional] credentials name`,
 
+  import: `  Usage:
+    ta import <options>
+  Options:
+    --schema, -s ........... DialogFlow Schema Zip file,
+    --assistant, -a ........ Name the DialogFlow schema
+    --credentials, -c ...... [optional] credentials name`,
+
   version: `  Usage:
     ta version `,
 }

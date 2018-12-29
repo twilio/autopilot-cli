@@ -23,14 +23,15 @@ Usage:
   ta update --schema <file> [--credentials <name>]
   ta delete --assistant <assistant-sid> [--credentials <name>]
   ta export --assistant <assistant-sid> [--credentials <name>]
+  ta import --schema <zip-file> --assistant <dialogflow-name> [--credentials <name>]
 
 Options:
   -h --help             Help Screen
   -v --version          CLI Version
   --account             Twilio Account SID
   --token               Twilio Auth Token
-  --schema              Autopilot Schema File
-  --assistant           Twilio Autopilot Assistant SID
+  --schema              Autopilot Schema File/DialogFlow Schema Zip File 
+  --assistant           Twilio Autopilot Assistant SID/Name The DialogFlow Schema
 ```
 
 ## Configuration
