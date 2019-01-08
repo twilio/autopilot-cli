@@ -7,20 +7,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 1000000 --reporter spec",
+    "test": "mocha --timeout 0 --reporter spec",
     "preinstall": "node check-version.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tingiris/twilio-assistant-cli.git"
+    "url": "git+https://github.com/twilio/autopilot-cli.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tingiris/twilio-assistant-cli/issues"
+    "url": "https://github.com/twilio/autopilot-cli/issues"
   },
-  "homepage": "https://github.com/tingiris/twilio-assistant-cli#readme",
+  "homepage": "https://github.com/twilio/autopilot-cli#readme",
   "dependencies": {
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
