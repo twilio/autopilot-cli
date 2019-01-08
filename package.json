@@ -7,7 +7,7 @@
   "description": "Twilio Autopilot Command Line Interface",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 1000000 --reporter spec",
+    "test": "mocha --timeout 0 --reporter spec",
     "preinstall": "node check-version.js"
   },
   "repository": {

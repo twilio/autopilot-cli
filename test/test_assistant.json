@@ -4,10 +4,10 @@
     "uniqueName" : "unit-test-assistant",
     "defaults" : {
         "defaults" : {
-            "assistant_initiation" : "task://welcome-user",
-            "fallback" : "task://welcome-user",
+            "assistant_initiation" : "task://welcome-intent",
+            "fallback" : "task://fallback-Intent",
             "collect" : {
-                "validate_on_failure" : "task://welcome-user"
+                "validate_on_failure" : "task://fallback-Intent"
             }
         }
     },
@@ -20,21 +20,107 @@
     },
     "fieldTypes" : [
         {
-            "uniqueName" : "question_type",
+            "uniqueName" : "Yes",
             "values" : [
                 {
                     "language" : "en-US",
-                    "value" : "WellCare",
-                    "synonymOf" : null
+                    "value" : "ok",
+                    "synonymOf" : "Yes"
                 },
                 {
                     "language" : "en-US",
-                    "value" : "Blue Cross",
-                    "synonymOf" : null
+                    "value" : "yeah",
+                    "synonymOf" : "Yes"
                 },
                 {
                     "language" : "en-US",
-                    "value" : "Anthem",
+                    "value" : "yes please",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "okay",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sounds correct",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "I think so",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "yes I agree",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "yes I do",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "I agree",
+                    "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Yes",
+                    "synonymOf" : null
+                }
+            ]
+        },
+        {
+
+            "uniqueName" : "No",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "no thanks",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Nothing for now",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Nope",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nothing",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "no maybe next time",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nah",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "no not really",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "na",
+                    "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "No",
                     "synonymOf" : null
                 }
             ]
@@ -42,14 +128,59 @@
     ],
     "tasks" : [
         {
+            "uniqueName" : "cancel-appointment",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, no problem! We will cancel your appointment. Have a great day."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to cancel my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to cancel my book"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel book"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to cancel my visit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel my visit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel an book"
+                }
+            ]
+        },
+        {
             "uniqueName" : "confirm-appointment",
             "actions" : {
                 "actions" : [
                     {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        "say" : {
+                            "speech" : "Great! Thank you for confirming your appointment. See you soon and have a great day."
                         }
-                    }
+                    },
+                    { "listen" : true }
                 ]
             },
             "fields" : [],
@@ -57,44 +188,106 @@
                 {
                     "language" : "en-US",
                     "taggedText" : "I would like to confirm my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to confirm my booking"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm my book"
                 }
             ]
+        },
+        {
+            "uniqueName" : "fallback-Intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I didn't get that. Can you say it again?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
         },
         {
             "uniqueName" : "make-appointment",
             "actions" : {
                 "actions" : [
                     {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        "say" : {
+                            "speech" : "Great! What day and time would be good for you?"
                         }
-                    }
+                    },
+                    { "listen" : true }
                 ]
             },
             "fields" : [],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "I want to book an appointment"
+                    "taggedText" : "I would like to schedule an appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to book an appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to make an appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "book appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "schedule appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "make an appointment"
                 }
             ]
         },
         {
-            "uniqueName" : "cancel-appointment",
+            "uniqueName" : "manage-appointment",
             "actions" : {
                 "actions" : [
                     {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        "say" : {
+                            "speech" : "Great! We will schedule your appointment. Would you a sms for your appointment detail?"
                         }
-                    }
+                    },
+                    { "listen" : true }
                 ]
             },
-            "fields" : [],
+            "fields" : [
+                {
+                    "uniqueName" : "time",
+                    "fieldType" : "Twilio.TIME"
+                },
+                {
+                    "uniqueName" : "date",
+                    "fieldType" : "Twilio.DATE"
+                }
+            ],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "I need to cancel my appointment"
+                    "taggedText" : "{date} at {time}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{time} on {date}"
                 }
             ]
         },
@@ -103,36 +296,75 @@
             "actions" : {
                 "actions" : [
                     {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        "say" : {
+                            "speech" : "Great! What day and time would be good for you to re-schedule your appointment?"
                         }
-                    }
+                    },
+                    { "listen" : true }
                 ]
             },
             "fields" : [],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "I need to change my appointment"
+                    "taggedText" : "I would like to change my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I would like to modify my appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "change appointment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "modify appointment"
                 }
             ]
         },
         {
-            "uniqueName" : "welcome-user",
+            "uniqueName" : "no-intent",
             "actions" : {
                 "actions" : [
                     {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        "say" : {
+                            "speech" : "Okay! We will see you soon. Have a great day."
                         }
-                    }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "No",
+                    "fieldType" : "No"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{No}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "welcome-intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Hi! I am Virtual Assistant, with my help you can book, modify, confirm and cancel an appointment with doctor. How can I help you?"
+                        }
+                    },
+                    { "listen" : true }
                 ]
             },
             "fields" : [],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "hey"
+                    "taggedText" : "hello there"
                 },
                 {
                     "language" : "en-US",
@@ -140,595 +372,52 @@
                 },
                 {
                     "language" : "en-US",
+                    "taggedText" : "hello again"
+                },
+                {
+                    "language" : "en-US",
                     "taggedText" : "hello"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "what time can I visit you"
+                    "taggedText" : "hey"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "can we come to your store today"
+                    "taggedText" : "hi there"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend"
+                    "taggedText" : "hey there"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 2"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 6"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 7"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 8"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 9"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 10"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what time can I visit you 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "can we come to your store today 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open on the weekend 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "do you guys work on the weekends 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what's your story 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "owl auto 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about owl auto 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "tell me about you 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "are you guys open 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when can we come visit you 11"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "when are you guys open 11"
+                    "taggedText" : "hello hi"
                 }
             ]
         },
         {
-            "uniqueName" : "ask-question",
+            "uniqueName" : "yes-intent",
             "actions" : {
                 "actions" : [
                     {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
+                        "say" : {
+                            "speech" : "Okay, We will send you sms for your appointment. Have a great day."
                         }
-                    }
+                    },
+                    { "listen" : true }
                 ]
             },
             "fields" : [
                 {
-                    "uniqueName" : "question",
-                    "fieldType" : "question_type"
+                    "uniqueName" : "Yes",
+                    "fieldType" : "Yes"
                 }
             ],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "Do you accept {question} insurance coverage?"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "schedule-check-appointment",
-            "actions" : {
-                "actions" : [
-                    {
-                        "fetch_actions" : {
-                            "uri" : "https://inquisitive-stretch-2083.twil.io/healthbot"
-                        }
-                    }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "AppointmentId",
-                    "fieldType" : "Twilio.NUMBER"
-                },
-                {
-                    "uniqueName" : "AppointmentTime",
-                    "fieldType" : "Twilio.TIME"
-                },
-                {
-                    "uniqueName" : "AppointmentDate",
-                    "fieldType" : "Twilio.DATE"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{AppointmentDate} at {AppointmentTime}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{AppointmentId}"
+                    "taggedText" : "{Yes}"
                 }
             ]
         }
