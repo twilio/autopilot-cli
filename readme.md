@@ -10,7 +10,7 @@ Usage:
   ta update --schema <file> [--credentials <name>]
   ta delete --assistant <assistant-sid> [--credentials <name>]
   ta export --assistant <assistant-sid> [--credentials <name>]
-  ta import --schema <zip-file> --assistant <dialogflow-name> [--credentials <name>]
+  ta import --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
 
 Options:
   -h --help             Help Screen
@@ -19,6 +19,8 @@ Options:
   --token               Twilio Auth Token
   --schema              Autopilot Schema File/DialogFlow Schema Zip File 
   --assistant           Twilio Autopilot Assistant SID/Name The DialogFlow Schema
+  --dfagent             Dialogflow Agent Name
+  --dfbackup            Dialogflow Agent Backup Zip File
 ```
 ## Installation
 The Twilio Autopilot CLI will eventually be available publicly via NPM. However, while it's in development, the installation process is:
