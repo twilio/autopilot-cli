@@ -4,20 +4,20 @@ const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
-  if (!args.hasOwnProperty('schema')) {
-    console.log(`The '--schema' argument is required`)
+  if (!args.hasOwnProperty('dfbackup')) {
+    console.log(`The '--dfbackup' argument is required`)
     return
   }
-  if (!args.hasOwnProperty('assistant')) {
-    console.log(`The '--assistant' argument is required`)
+  if (!args.hasOwnProperty('dfagent')) {
+    console.log(`The '--dfagent' argument is required`)
     return
   }
 
-  const schema = args.schema,
-    name = args.assistant,
+  const dfbackup = args.dfbackup,
+    name = args.dfagent,
     profile = args.credentials || "default";
 
-  let fullPath = `${path.resolve()}/${schema}` 
+  let fullPath = `${path.resolve()}/${dfbackup}` 
 
   const spinner = ora().start('Importing assistant...')
 
@@ -25,9 +25,9 @@ module.exports = async (args) => {
 
     const filename = await ta.importAssistant(fullPath, name);
 
-    const schemaFulPath = path.resolve(process.cwd(),filename);
+    const dfbackupFulPath = path.resolve(process.cwd(),filename);
     
-    const assistant = await ta.createAssistantFully(schemaFulPath,profile)
+    const assistant = await ta.createAssistantFully(dfbackupFulPath,profile)
 
 
     spinner.stop()   

@@ -1,4 +1,3 @@
-
 const ta = require('../lib/twilio-assistant');
 const files = require('../lib/files');
 const _ = require('lodash');

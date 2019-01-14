@@ -24,11 +24,6 @@
             "values" : [
                 {
                     "language" : "en-US",
-                    "value" : "Yes",
-                    "synonymOf" : null
-                },
-                {
-                    "language" : "en-US",
                     "value" : "ok",
                     "synonymOf" : "Yes"
                 },
@@ -41,6 +36,11 @@
                     "language" : "en-US",
                     "value" : "yes please",
                     "synonymOf" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Yes",
+                    "synonymOf" : null
                 },
                 {
                     "language" : "en-US",
@@ -80,11 +80,6 @@
             "values" : [
                 {
                     "language" : "en-US",
-                    "value" : "No",
-                    "synonymOf" : null
-                },
-                {
-                    "language" : "en-US",
                     "value" : "no thanks",
                     "synonymOf" : "No"
                 },
@@ -102,6 +97,11 @@
                     "language" : "en-US",
                     "value" : "nothing",
                     "synonymOf" : "No"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "No",
+                    "synonymOf" : null
                 },
                 {
                     "language" : "en-US",
