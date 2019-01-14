@@ -13,6 +13,7 @@ const menus = {
     update ............. update an assistant
     delete ............. delete an assistant
     export ............. export assistant schema 
+    import ............. import Dialogflow Agent Backup Zip File
     version ............ get package version
     help ............... get help menu for a command`,
 
@@ -47,8 +48,8 @@ const menus = {
   import: `  Usage:
     ta import <options>
   Options:
-    --schema, -s ........... DialogFlow Schema Zip file,
-    --assistant, -a ........ Name the DialogFlow schema
+    --dfbackup ........... Dialogflow Agent Backup Zip File,
+    --dfagent ........ Dialogflow Agent Name
     --credentials, -c ...... [optional] credentials name`,
 
   version: `  Usage:
