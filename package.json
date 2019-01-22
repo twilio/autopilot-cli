@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/twilio/autopilot-cli#readme",
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "clear": "^0.1.0",
     "figlet": "^1.2.1",
     "inquirer": "^6.2.1",
@@ -33,7 +33,7 @@
     "minimist": "^1.2.0",
     "ora": "^3.0.0",
     "pretty-json-stringify": "0.0.2",
-    "twilio": "^3.26.0",
+    "twilio": "^3.27.1",
     "underscore": "^1.9.1",
     "zip-unzip-promise": "^1.1.0"
   },
