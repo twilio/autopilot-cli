@@ -11,7 +11,7 @@ After installing you'll be able to:
 
 ## Installation
 
-  `npm install -g @twilio/autopilot-cli`
+  `sudo npm install -g @twilio/autopilot-cli`
   
 ## Usage
 
