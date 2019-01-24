@@ -33,6 +33,7 @@
     "minimist": "^1.2.0",
     "ora": "^3.0.0",
     "pretty-json-stringify": "0.0.2",
+    "semver": "^5.6.0",
     "twilio": "^3.27.1",
     "underscore": "^1.9.1",
     "zip-unzip-promise": "^1.1.0"
