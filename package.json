@@ -30,6 +30,8 @@
     "minimist": "^1.2.0",
     "ora": "^3.0.0",
     "pretty-json-stringify": "0.0.2",
+    "request-promise": "^4.2.2",
+    "simple-git": "^1.107.0",
     "twilio": "^3.25.0",
     "underscore": "^1.9.1",
     "zip-unzip-promise": "^1.1.0"

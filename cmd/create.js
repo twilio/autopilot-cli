@@ -4,25 +4,38 @@ const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
-  if (!args.hasOwnProperty('schema')) {
-    console.log(`The '--schema' argument is required`)
+  if (!args.hasOwnProperty('schema') && !args.hasOwnProperty('template')) {
+    console.log(`The '--schema/--template' argument is required`)
     return
   }
 
-  const name = schema = args.schema,
-    profile = args.credentials || "default"
-
-  let fullPath = `${path.resolve()}/${schema}` 
-
-  const spinner = ora().start('Creating assistant...')
+  const spinner = ora()
 
   try {
 
-    const assistant = await ta.createAssistantFully(fullPath,profile)
+    let schema = args.schema || '',
+    profile = args.credentials || "default"
+ 
+    let clonedAssistant = '';
 
-    spinner.stop()   
+    if(args.hasOwnProperty('template')){
 
-    console.log(`Assistant "${assistant.uniqueName}" was created`)
+      let url = 'https://raw.githubusercontent.com/Mohammad-Khalid/templates/master/templates.json';
+      
+
+      clonedAssistant = await ta.clone(url);
+
+      schema = path.join(clonedAssistant, 'schema.json');
+
+    }
+    // spinner.start('Creating assistant...');
+    // let fullPath = `${path.resolve()}/${schema}`
+
+    // const assistant = await ta.createAssistantFully(fullPath,profile)
+
+    // spinner.stop()   
+
+    // console.log(`Assistant "${assistant.uniqueName}" was created`);
     
   } catch (err) {
     spinner.stop()
