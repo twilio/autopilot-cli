@@ -28,14 +28,14 @@ module.exports = async (args) => {
       schema = path.join(clonedAssistant, 'schema.json');
 
     }
-    // spinner.start('Creating assistant...');
-    // let fullPath = `${path.resolve()}/${schema}`
+    spinner.start('Creating assistant...');
+    let fullPath = `${path.resolve()}/${schema}`
 
-    // const assistant = await ta.createAssistantFully(fullPath,profile)
+    const assistant = await ta.createAssistantFully(fullPath,profile)
 
-    // spinner.stop()   
+    spinner.stop()   
 
-    // console.log(`Assistant "${assistant.uniqueName}" was created`);
+    console.log(`Assistant "${assistant.uniqueName}" was created`);
     
   } catch (err) {
     spinner.stop()
