@@ -2,7 +2,7 @@
   "assistantSid" : "",
   "friendlyName": "sandbox-assistant",
   "logQueries": true,
-  "uniqueName": "sandbox-assistant",
+  "uniqueName": "sandbox-test-assistant",
   "types": [
     {
       "uniqueName": "QUESTION",
