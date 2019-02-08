@@ -26,7 +26,6 @@ const menus = {
     ta create <options>
   Options:
     --schema, -s ........... [option] Autopilot Schema File,
-    --template, -t ........... [option] Autopilot Template List,
     --credentials, -c ...... [optional] credentials name`,
 
   update: `  Usage:
