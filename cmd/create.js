@@ -4,23 +4,18 @@ const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
-  if (!args.hasOwnProperty('schema') && !args.hasOwnProperty('template')) {
-    console.log(`The '--schema/--template' argument is required`)
-    return
-  }
-
   const spinner = ora()
 
   try {
 
-    let schema = args.schema || '',
+    let schema = args.schema || 'templates',
     profile = args.credentials || "default"
  
     let clonedAssistant = '';
 
-    if(args.hasOwnProperty('template')){
+    if(schema == 'templates'){
 
-      let url = 'https://raw.githubusercontent.com/Mohammad-Khalid/templates/master/templates.json';
+      let url = 'https://raw.githubusercontent.com/twilio/autopilot-templates/master/Assistants/templates.json';
       
 
       clonedAssistant = await ta.clone(url);

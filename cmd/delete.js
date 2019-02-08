@@ -19,7 +19,7 @@ module.exports = async (args) => {
 
     spinner.stop()
     //TODO: maybe include name of deleted assistant
-    console.log(`\nRemoved assistant with SID: ${args.assistant}`)
+    console.log(`\nRemoved assistant with UniqueName: ${args.assistant}`)
 
   } catch (err) {
     spinner.stop()
