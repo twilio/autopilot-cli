@@ -14,6 +14,7 @@ const menus = {
     delete ............. delete an assistant
     export ............. export assistant schema 
     import ............. import Dialogflow Agent Backup Zip File
+    channel ............ sending a message to the custom channel endpoint
     version ............ get package version
     help ............... get help menu for a command`,
 
@@ -25,7 +26,7 @@ const menus = {
   create: `  Usage:
     ta create <options>
   Options:
-    --schema, -s ........... Autopilot Schema File
+    --schema, -s ........... [option] Autopilot Schema File,
     --credentials, -c ...... [optional] credentials name`,
 
   update: `  Usage:
@@ -48,8 +49,16 @@ const menus = {
   import: `  Usage:
     ta import <options>
   Options:
-    --dfbackup ........... Dialogflow Agent Backup Zip File,
-    --dfagent ........ Dialogflow Agent Name
+    --dfbackup ............. Dialogflow Agent Backup Zip File,
+    --dfagent .............. Dialogflow Agent Name
+    --credentials, -c ...... [optional] credentials name`,
+
+  channel: `  Usage:
+    ta channel <options>
+  Options:
+    --assistant ............ Twilio Autopilot Assistant SID,
+    --text ................. User text input,
+    --channel .............. The name of your custom channel, 
     --credentials, -c ...... [optional] credentials name`,
 
   version: `  Usage:
