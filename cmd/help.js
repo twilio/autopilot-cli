@@ -15,6 +15,7 @@ const menus = {
     export ............. export assistant schema 
     import ............. import Dialogflow Agent Backup Zip File
     channel ............ sending a message to the custom channel endpoint
+    field .............. bulk uploading field values
     version ............ get package version
     help ............... get help menu for a command`,
 
@@ -59,6 +60,14 @@ const menus = {
     --assistant ............ Twilio Autopilot Assistant SID,
     --text ................. User text input,
     --channel .............. The name of your custom channel, 
+    --credentials, -c ...... [optional] credentials name`,
+
+  field: `  Usage:
+    ta channel <options>
+  Options:
+    --assistant ............ Twilio Autopilot Assistant SID,
+    --field ................ field type SID,
+    --csv .................. CSV file, 
     --credentials, -c ...... [optional] credentials name`,
 
   version: `  Usage:

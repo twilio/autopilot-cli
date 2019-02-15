@@ -54,6 +54,10 @@ module.exports = () => {
       require('./cmd/channel')(args)
       break
 
+    case 'field':
+      require('./cmd/field-value')(args)
+      break
+
     case 'version':
       require('./cmd/version')(args)
       break

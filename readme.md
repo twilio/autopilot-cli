@@ -25,6 +25,7 @@ Usage:
   ta export --assistant <assistant-sid> [--credentials <name>]
   ta import --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
   ta channel --assistant <assistant-sid> --text <user-text-input> --channel <custom-channel-name> [--credentials <name>]
+  ta field --assistant <assistant-sid> --field <field-type-sid> --csv <csv-file> [--credentials <name>]
 
 Options:
   -h --help             Help Screen
@@ -32,11 +33,13 @@ Options:
   --account             Twilio Account SID
   --token               Twilio Auth Token
   --schema              Autopilot Schema File/DialogFlow Schema Zip File 
-  --assistant           Twilio Autopilot Assistant SID/Name The DialogFlow Schema
+  --assistant           Twilio Autopilot Assistant SID
   --dfagent             Dialogflow Agent Name
   --dfbackup            Dialogflow Agent Backup Zip File
   --text                The user text input
   --channel             The name of your custom channel
+  --field               Twilio Autopilot Field Type SID
+  --csv                 CSV File path
 ```
 
 ## Configuration
