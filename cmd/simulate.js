@@ -13,14 +13,10 @@ module.exports = async (args) => {
     console.log(`The '--text' argument is required`)
     return
   }
-  if (!args.hasOwnProperty('channel')) {
-    console.log(`The '--channel' argument is required`)
-    return
-  }
 
   const assistantSid = args.assistant,
         text = args.text,
-        channel = args.channel,
+        channel = 'cli',
         profile = args.credentials || "default";
  
   const spinner = ora().start('Sending text to channel...')
