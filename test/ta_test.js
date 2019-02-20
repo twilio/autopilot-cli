@@ -31,7 +31,7 @@ describe('Twilio Autopilot CLI Module Tests', () => {
 
   describe('#exportAssistant()', () => {
     it('export assistant', async () => {
-      const export_assistant = await ta.exportAssistant(assistant.sid, profile);
+      const export_assistant = await ta.exportAssistant(assistant.uniqueName, profile);
       expect(export_assistant).to.have.property('uniqueName');
     });
   });
@@ -42,6 +42,23 @@ describe('Twilio Autopilot CLI Module Tests', () => {
       const schemaPath = path.join(process.cwd(),`${assistant.uniqueName}.json`);
       const update_assistant = await ta.updateAssistant(schemaPath, profile);
       expect(update_assistant).to.have.property('uniqueName');
+    });
+  });
+
+  describe('#customChannel()', () => {
+    it('custom channel message', async () => {
+
+      const channelResponse = await ta.customChannel(assistant.sid, 'webchat', 'hello', profile);
+      expect(channelResponse).to.have.property('says');
+    });
+  });
+
+  describe('#bulkUploadFieldValues()', () => {
+    it('bulk upload field values', async () => {
+
+      const csvFile = `${path.resolve('test/Yes.csv')}`
+      const bulkUploadFieldValues = await ta.bulkUploadFieldValues(assistant.uniqueName, 'Yes', csvFile, profile);
+      expect(bulkUploadFieldValues).to.have.property('uniqueName');
     });
   });
 
