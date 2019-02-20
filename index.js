@@ -50,8 +50,8 @@ module.exports = () => {
       require('./cmd/import')(args)
       break
 
-    case 'channel':
-      require('./cmd/channel')(args)
+    case 'simulate':
+      require('./cmd/simulate')(args)
       break
 
     case 'field':

@@ -24,7 +24,7 @@ Usage:
   ta delete --assistant <assistant-sid> [--credentials <name>]
   ta export --assistant <assistant-sid> [--credentials <name>]
   ta import --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
-  ta channel --assistant <assistant-sid> --text <user-text-input> --channel <custom-channel-name> [--credentials <name>]
+  ta simulate --assistant <assistant-sid> --text <user-text-input> [--credentials <name>]
   ta field --assistant <assistant-sid> --field <field-type-sid> --csv <csv-file> [--credentials <name>]
 
 Options:
@@ -37,7 +37,6 @@ Options:
   --dfagent             Dialogflow Agent Name
   --dfbackup            Dialogflow Agent Backup Zip File
   --text                The user text input
-  --channel             The name of your custom channel
   --field               Twilio Autopilot Field Type SID
   --csv                 CSV File path
 ```
