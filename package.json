@@ -1,6 +1,6 @@
 {
   "name": "@twilio/autopilot-cli",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "bin": {
     "ta": "./bin/cli.js"
   },
@@ -39,8 +39,7 @@
     "twilio": "^3.27.1",
     "underscore": "^1.9.1",
     "extract-zip": "1.6.7",
-    "fs-extra": "7.0.1",
-    "csv-parse": "^4.3.3"
+    "fs-extra": "7.0.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
