@@ -1,6 +1,6 @@
 {
   "name": "@twilio/autopilot-cli",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "bin": {
     "ta": "./bin/cli.js"
   },
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.0.0"
+    "mocha": "^6.0.1"
   },
   "engines": {
     "node": ">=8.10.0"
