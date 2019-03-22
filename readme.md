@@ -1,13 +1,20 @@
-Twilio Autopilot CLI (Experimental)
+Twilio Autopilot CLI
 ===
-A command line interface for managing Twilio Autopilot.
+A command line interface for managing Twilio Autopilo. After installing you'll be able to:
 
-After installing you'll be able to:
-
-* Create an assistant
+* Create an assistant from a template
 * Export an existing assistant to a json file
 * Update an existing assistant with a json file
 * Delete an assistant
+* Simulate an Assistant
+* Import a DialogFlow Agent
+* Bulk upload field values
+
+The Autopilot CLI enable you to:
+
+* Keep your assistant in a repository with version control
+* Integrate with your CI environment
+* Share the schema files to collaborate on development
 
 ## Installation
 
@@ -25,7 +32,7 @@ Usage:
   ta export --assistant <assistant-sid> [--credentials <name>]
   ta import --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
   ta simulate --assistant <assistant-sid> --text <user-text-input> [--credentials <name>]
-  ta field --assistant <assistant-sid> --field <field-type-sid> --csv <csv-file> [--credentials <name>]
+  ta field --assistant <assistant-sid> --field <field-type-sid or field-type-unique-name> --csv <csv-file> [--credentials <name>]
 
 Options:
   -h --help             Help Screen
