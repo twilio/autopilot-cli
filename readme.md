@@ -1,6 +1,6 @@
 Twilio Autopilot CLI
 ===
-A command line interface for managing Twilio Autopilo. After installing you'll be able to:
+A command line interface for managing Twilio Autopilot. After installing you'll be able to:
 
 * Create an assistant from a template
 * Export an existing assistant to a json file
