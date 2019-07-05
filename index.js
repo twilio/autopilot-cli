@@ -47,7 +47,7 @@ module.exports = () => {
       break
 
     case 'import':
-      require('./cmd/import')(args)
+      require('./cmd/imports')(args)
       break
 
     case 'simulate':

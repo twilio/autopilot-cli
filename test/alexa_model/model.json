@@ -1,0 +1,47 @@
+{
+    "interactionModel": {
+      "languageModel": {
+        "invocationName": "basic starter",
+        "types": [
+  
+        ],
+        "intents": [
+          {
+            "name": "AMAZON.CancelIntent",
+            "samples": [
+  
+            ]
+          },
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": [
+  
+            ]
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": [
+  
+            ]
+          },
+          {
+            "name":"MyNameIsIntent",
+            "slots":[
+                {
+                    "name":"name",
+                    "type":"AMAZON.US_FIRST_NAME"
+                }
+            ],
+            "samples":[
+                "{name}",
+                "{name} is my name",
+                "my name is {name}",
+                "i am {name}",
+                "you can call me {name}"
+            ]
+        }
+        ]
+      }
+    }
+  }
+  
