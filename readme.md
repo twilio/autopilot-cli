@@ -7,7 +7,7 @@ A command line interface for managing Twilio Autopilot. After installing you'll 
 * Update an existing assistant with a json file
 * Delete an assistant
 * Simulate an Assistant
-* Import a DialogFlow Agent
+* Import a DialogFlow Agent/Alexa Interaction Model
 * Bulk upload field values
 
 The Autopilot CLI enable you to:
@@ -31,6 +31,9 @@ Usage:
   ta delete --assistant <assistant-sid> [--credentials <name>]
   ta export --assistant <assistant-sid> [--credentials <name>]
   ta import --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
+  OR
+  ta import dialogflow --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
+  ta import alexa --model <alexa-interaction-model-file> [--redirectURL <alexa-back-end-hanlder-url>] [--credentials <name>]
   ta simulate --assistant <assistant-sid> --text <user-text-input> [--credentials <name>]
   ta field --assistant <assistant-sid> --field <field-type-sid or field-type-unique-name> --csv <csv-file> [--credentials <name>]
 
@@ -46,6 +49,8 @@ Options:
   --text                The user text input
   --field               Twilio Autopilot Field Type SID
   --csv                 CSV File path
+  --model               Alexa Interaction Model File
+  --redirectURL         Alexa Back-End Hanlder URL to send back the response
 ```
 
 ## Configuration
@@ -56,4 +61,4 @@ To configure the CLI with your Twilio credentials run the following command: `$ 
 The first set of credentials you provide will become your 'default' profile. You can add additional profiles or update an existing profile by running the following command: `$ ta init --credentials test-profile` (where 'test-profile' the the profile name you'd like to add/update).
 
 ## Schema Files
-A schema file is a JSON document that's used to define an Autopilot assistant. They tell the CLI what to create or update. When exporting an Assistant will one will be saved. When creating an Assistant you can choose from one of the following [templates](https://github.com/twilio/autopilot-templates/tree/master/Assistants) so you can get started quickly.
+A schema file is a JSON document that's used to define an Autopilot assistant. They tell the CLI what to create or update. When exporting an Assistant will one be saved. When creating an Assistant you can choose from one of the following [templates](https://github.com/twilio/autopilot-templates/tree/master/Assistants) to get started quickly.
