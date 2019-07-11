@@ -13,7 +13,7 @@ const menus = {
     update ............. update an assistant
     delete ............. delete an assistant
     export ............. export assistant schema 
-    import ............. import Dialogflow Agent Backup Zip File
+    import ............. import Dialogflow Agent Backup Zip/Alexa Interaction Model File
     simulate ........... sending a message to the custom channel endpoint
     field .............. bulk uploading field values
     version ............ get package version
@@ -48,11 +48,26 @@ const menus = {
     --credentials, -c ...... [optional] credentials name`,
 
   import: `  Usage:
-    ta import <options>
-  Options:
-    --dfbackup ............. Dialogflow Agent Backup Zip File,
-    --dfagent .............. Dialogflow Agent Name
-    --credentials, -c ...... [optional] credentials name`,
+    ta import [command] <options>
+  Options: 
+    --help ................ output usage information
+  Commands:
+    alexa <options> ........ import alexa interaction model,
+    dialogFlow <options> ... import dialogFlow agent backup zip`,
+
+  dialogflow : ` Usage:
+    ta import dialogflow <options>
+  Options : 
+      --dfbackup ............. Dialogflow Agent Backup Zip File,
+      --dfagent .............. Dialogflow Agent Name,
+      --credentials, -c ...... [optional] credentials name`,
+
+  alexa : ` Usage:
+    ta import alexa <options>
+  Options : 
+      --model ............. Alexa Interaction Model File,
+      --redirectURL ....... [optional] Back-End Handler URL
+      --credentials, -c ...... [optional] credentials name`,
 
   channel: `  Usage:
     ta simulate <options>
@@ -79,7 +94,7 @@ module.exports = (args) => {
 
   const subCmd = args._[0] === 'help'
     ? args._[1]
-    : args._[0]
+    : args._.length === 2 ? args._[1] : args._[0]
 
     console.log(
       chalk.red(

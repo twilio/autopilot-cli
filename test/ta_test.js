@@ -6,13 +6,14 @@ const files = require('../lib/files');
 const ta = require("../lib/twilio-assistant");
 
 describe('Twilio Autopilot CLI Module Tests', () => {
-  let assistant = {}, profile = 'default', df_filename = '';
+  let assistant = {}, profile = 'default', df_filename = '', alexa_filename = '';
   before(() => {
     
   })
   after(() => {
-    files.removeFile(path.join(process.cwd(),`${assistant.uniqueName}.json`));
-    files.removeFile(path.join(process.cwd(),df_filename));
+    files.removeFile(path.join(process.cwd(), `${assistant.uniqueName}.json`));
+    files.removeFile(path.join(process.cwd(), df_filename));
+    files.removeFile(path.join(process.cwd(), alexa_filename));
   })
   describe('#createAssistant()', () => {
     it('create assistant', async () => {
@@ -77,6 +78,18 @@ describe('Twilio Autopilot CLI Module Tests', () => {
           name = `Twilio-Basic-Starter`;
       const filename = await ta.importAssistant(fullPath,name);
       df_filename = filename;
+      expect(path.extname(filename)).to.be.eq('.json');
+    })
+  })
+
+  describe('#importAlexaAssistant()', () => {
+    it("import Alexa Interaction Model Assistant", async () => {
+
+      let fullPath = `${path.resolve('test/alexa_model/model.json')}`,
+          redirectURL = `https://inquisitive-stretch-2083.twil.io/generic`;
+
+      const filename = await ta.importAlexaAssistant(fullPath,redirectURL);
+      alexa_filename = filename;
       expect(path.extname(filename)).to.be.eq('.json');
     })
   })
