@@ -1,6 +1,6 @@
 {
   "name": "@twilio/autopilot-cli",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "bin": {
     "ta": "./bin/cli.js"
   },
@@ -36,7 +36,7 @@
     "minimist": "^1.2.0",
     "ora": "^3.4.0",
     "pretty-json-stringify": "0.0.2",
-    "request-promise": "^4.2.2",
+    "request-promise": "^4.2.4",
     "simple-git": "^1.120.0",
     "twilio": "^3.33.1",
     "underscore": "^1.9.1"
