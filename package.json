@@ -27,23 +27,23 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
-    "csv-parse": "^4.4.3",
+    "csv-parse": "^4.4.5",
     "extract-zip": "1.6.7",
     "figlet": "^1.2.3",
     "fs-extra": "7.0.1",
-    "inquirer": "^6.5.0",
-    "lodash": "^4.17.14",
+    "inquirer": "^6.5.1",
+    "lodash": "^4.17.15",
     "minimist": "^1.2.0",
     "ora": "^3.4.0",
     "pretty-json-stringify": "0.0.2",
     "request-promise": "^4.2.4",
-    "simple-git": "^1.120.0",
-    "twilio": "^3.33.1",
+    "simple-git": "^1.124.0",
+    "twilio": "^3.33.3",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.2.0"
   },
   "engines": {
     "node": ">=8.10.0"
