@@ -1,13 +1,12 @@
-const minimist = require('minimist')
-const error = require('./lib/error')
+const minimist = require('minimist');
+const error = require('./lib/error');
 
 module.exports = () => {
-
   //TODO: check to see if CLI is configured
   
-  const args = minimist(process.argv.slice(2))
+  const args = minimist(process.argv.slice(2));
 
-  let cmd = args._[0] || 'help'
+  let cmd = args._[0] || 'help';
 
   if (args.version || args.v) {
     cmd = 'version'
@@ -19,55 +18,55 @@ module.exports = () => {
 
   switch (cmd) {
     case 'temp':
-      require('./cmd/temp')(args)
-      break
+      require('./cmd/temp')(args);
+      break;
 
     case 'init':
-      require('./cmd/init')(args)
-      break
+      require('./cmd/init')(args);
+      break;
 
     case 'list':
-      require('./cmd/list')(args)
-      break
+      require('./cmd/list')(args);
+      break;
 
     case 'create':
-      require('./cmd/create')(args)
-      break
+      require('./cmd/create')(args);
+      break;
 
     case 'update':
-      require('./cmd/update')(args)
-      break
+      require('./cmd/update')(args);
+      break;
 
     case 'delete':
-      require('./cmd/delete')(args)
-      break
+      require('./cmd/delete')(args);
+      break;
 
     case 'export':
-      require('./cmd/export')(args)
-      break
+      require('./cmd/export')(args);
+      break;
 
     case 'import':
-      require('./cmd/imports')(args)
-      break
+      require('./cmd/imports')(args);
+      break;
 
     case 'simulate':
-      require('./cmd/simulate')(args)
-      break
+      require('./cmd/simulate')(args);
+      break;
 
     case 'field':
-      require('./cmd/field-value')(args)
-      break
+      require('./cmd/field-value')(args);
+      break;
 
     case 'version':
-      require('./cmd/version')(args)
-      break
+      require('./cmd/version')(args);
+      break;
 
     case 'help':
-      require('./cmd/help')(args)
-      break
+      require('./cmd/help')(args);
+      break;
 
     default:
-      error(`"${cmd}" is not a valid command!`, true)
+      error(`"${cmd}" is not a valid command!`, true);
       break
   }
-}
+};
