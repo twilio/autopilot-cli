@@ -10,3 +10,5 @@ test_sample.js
 # other stuff to ignore
 .DS_Store
 Thumbs.db
+.idea
+.vscode
