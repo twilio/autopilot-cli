@@ -1,39 +1,37 @@
-const path = require('path'),
-      ora = require('ora'),
+const ora = require('ora'),
       prettyJSONStringify = require('pretty-json-stringify'),
-      ta = require('../lib/twilio-assistant');
+      AutopilotCore = require('@dabblelab/autopilot-core');
 
 module.exports = async (args) => {
 
   if (!args.hasOwnProperty('assistant')) {
-    console.log(`The '--assistant' argument is required`)
+    console.log(`The '--assistant' argument is required`);
     return
   }
   if (!args.hasOwnProperty('text')) {
-    console.log(`The '--text' argument is required`)
+    console.log(`The '--text' argument is required`);
     return
   }
 
   const assistantSid = args.assistant,
         text = args.text,
         channel = 'cli',
-        profile = args.credentials || "default";
+        profile = args.credentials || "default",
+        twilioClient = await require('../lib/twilio-assistant/client')(profile);
  
-  const spinner = ora().start('Sending text to channel...')
+  const spinner = ora().start('Sending text to channel...');
 
   try {
 
-    const channelResponse = await ta.customChannel(assistantSid, channel, text, profile);
+    const channelResponse = await AutopilotCore.customChannel(assistantSid, channel, text, twilioClient);
 
-
-    spinner.stop()   
-
-    console.log(`Channel response\n`)
-    console.log(prettyJSONStringify(channelResponse))
+    spinner.stop();
+    console.log(`Channel response\n`);
+    console.log(prettyJSONStringify(channelResponse));
     
   } catch (err) {
-    spinner.stop()
 
-    console.error(`ERROR: ${err}`)
+    spinner.stop();
+    console.error(`ERROR: ${err}`);
   }
 }

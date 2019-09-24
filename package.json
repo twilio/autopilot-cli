@@ -25,25 +25,20 @@
   },
   "homepage": "https://github.com/twilio/autopilot-cli#readme",
   "dependencies": {
+    "@dabblelab/autopilot-core": "^1.0.0-beta.3",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
-    "figlet": "^1.2.1",
-    "inquirer": "^6.2.1",
-    "lodash": "^4.17.11",
+    "figlet": "^1.2.4",
+    "inquirer": "^6.5.2",
+    "lodash": "^4.17.15",
     "minimist": "^1.2.0",
-    "ora": "^3.0.0",
+    "ora": "^3.4.0",
     "pretty-json-stringify": "0.0.2",
-    "request-promise": "^4.2.2",
-    "simple-git": "^1.107.0",
-    "twilio": "^3.27.1",
-    "underscore": "^1.9.1",
-    "extract-zip": "1.6.7",
-    "fs-extra": "7.0.1",
-    "csv-parse": "^4.3.3"
+    "twilio": "^3.35.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "*"
+    "mocha": "^6.2.0"
   },
   "engines": {
     "node": ">=8.10.0"

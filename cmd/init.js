@@ -1,7 +1,5 @@
-const ora = require('ora');
-const inquirer = require('inquirer');
-
-const ta = require('../lib/twilio-assistant');
+const ora = require('ora'),
+      ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 

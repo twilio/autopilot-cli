@@ -1,43 +1,43 @@
-const path = require('path');
-const ora = require('ora');
-const ta = require('../../lib/twilio-assistant');
+const path = require('path'),
+      ora = require('ora'),
+      AutopilotCore = require('@dabblelab/autopilot-core');
 
 module.exports = async (args) => {
 
   if (!args.hasOwnProperty('model')) {
-    console.log(`The '--model' argument is required`)
-    return
+    console.log(`The '--model' argument is required`);
+    return;
   }
 
   const model = args.model,
         redirectURL = args.redirectURL || 'https://inquisitive-stretch-2083.twil.io/generic',
-        profile = args.credentials || "default";
+        profile = args.credentials || "default",
+        twilioClient = await require('../../lib/twilio-assistant/client')(profile);
 
-  let fullPath = `${path.resolve()}/${model}` 
+  let fullPath = `${path.resolve()}/${model}`;
 
   const spinner = ora().start('Importing assistant...');
 
   try {
 
     let assistant = {};
-    const filename = await ta.importAlexaAssistant(fullPath, redirectURL);
+    const filename = await AutopilotCore.importAlexaModel(fullPath, redirectURL);
     const alexaFulPath = path.resolve(process.cwd(),filename);
-    
-    if(ta.existAssistantCheck(alexaFulPath,profile)){
 
-      console.log(`Updating Assistant...`);
-      assistant = await ta.updateAssistant(alexaFulPath,profile);
-    }else{
-      console.log(`Creating Assistant...`);
-      assistant = await ta.createAssistantFully(alexaFulPath,profile);
+    if(await AutopilotCore.existAssistant(alexaFulPath, twilioClient)){
+
+      assistant = AutopilotCore.updateAssistant(alexaFulPath, twilioClient);
+    }else {
+
+      assistant = AutopilotCore.createAssistant(alexaFulPath, twilioClient);
     }
     
     spinner.stop();
     console.log(`Assistant "${assistant.uniqueName}" was imported`);
   }catch (err) {
-    spinner.stop()
 
-    console.error(`ERROR: ${err}`)
+    spinner.stop();
+    console.error(`ERROR: ${err}`);
   }
 }
   

@@ -77,7 +77,7 @@ const menus = {
     --credentials, -c ...... [optional] credentials name`,
 
   field: `  Usage:
-    ta channel <options>
+    ta field <options>
   Options:
     --assistant ............ Twilio Autopilot Assistant SID,
     --field ................ field type SID,

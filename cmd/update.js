@@ -1,33 +1,33 @@
-const path = require('path');
-const ora = require('ora')
-const ta = require('../lib/twilio-assistant');
+const path = require('path'),
+      ora = require('ora'),
+      AutopilotCore = require('@dabblelab/autopilot-core');
 
 module.exports = async (args) => {
 
   if (!args.hasOwnProperty('schema')) {
-    console.log(`The '--schema' argument is required`)
-    return
+    console.log(`The '--schema' argument is required`);
+    return;
   }
 
-  const name = schema = args.schema,
-    profile = args.credentials || "default"
-
-  let fullPath = `${path.resolve()}/${schema}` 
-
-  const spinner = ora().start('Updating assistant...')
+  const spinner = ora().start('Updating assistant...');
 
   try {
 
-    const schema = args.schema
+    const schema = args.schema,
+          profile = args.credentials || "default",
+          twilioClient = await require('../lib/twilio-assistant/client')(profile);
 
-    const assistant = await ta.updateAssistant(fullPath,profile)
+    const fullPath = `${path.resolve()}/${schema}`; 
 
-    spinner.stop()   
+    const assistant = await AutopilotCore.updateAssistant(fullPath, twilioClient);
+    
+    spinner.stop();
 
-    console.log(`\nAssistant "${assistant.uniqueName}" was updated`)
+    console.log(`\nAssistant "${assistant.uniqueName}" was updated`);
 
   } catch (err) {
-    spinner.stop()
-    console.error(`ERROR: ${err}`)
+
+    spinner.stop();
+    console.error(`ERROR: ${err}`);
   }
 }
