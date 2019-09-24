@@ -26,10 +26,10 @@ module.exports = async (args) => {
 
     if(await AutopilotCore.existAssistant(alexaFulPath, twilioClient)){
 
-      assistant = AutopilotCore.updateAssistant(alexaFulPath, twilioClient);
+      assistant = await AutopilotCore.updateAssistant(alexaFulPath, twilioClient);
     }else {
 
-      assistant = AutopilotCore.createAssistant(alexaFulPath, twilioClient);
+      assistant = await AutopilotCore.createAssistant(alexaFulPath, twilioClient);
     }
     
     spinner.stop();
