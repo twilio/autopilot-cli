@@ -1,5 +1,5 @@
-const ora = require('ora');
-const ta = require('../lib/twilio-assistant');
+const ora = require('ora'),
+      AutopilotCore = require('@dabblelab/autopilot-core');
 
 module.exports = async (args) => {
   if (!args.hasOwnProperty('assistant')) {
@@ -7,21 +7,24 @@ module.exports = async (args) => {
     return;
   }
 
-  const spinner = ora().start('Deleting assistant...');
+  const spinner = ora().start('Deleting assistant1...')
 
   try {
-    const sid = encodeURIComponent(args.assistant);
-    const profile = args.credentials || 'default';
 
-    // const recovery_schema = await ta.exportAssistant(sid, profile, true);
-    const result = await ta.deleteAssistantFully(sid, profile);
+    const sid = args.assistant,
+          profile = args.credentials || "default",
+          twilioClient = await require('../lib/twilio-assistant/client')(profile);
+
+    await AutopilotCore.exportAssistant(sid, twilioClient, true);
+    await AutopilotCore.deleteAssistant(sid, twilioClient);
 
     spinner.stop();
+    console.log(`\nRemoved assistant with UniqueName: ${args.assistant}`);
 
     console.log(`\nRemoved assistant with UniqueName: ${args.assistant}`)
   } catch (err) {
+
     spinner.stop();
-    
-    console.error(`ERROR: ${err}`)
+    console.error(`ERROR: ${err}`);
   }
 };
