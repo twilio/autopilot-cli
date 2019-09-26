@@ -8,7 +8,7 @@ module.exports = async (args) => {
     return;
   }
 
-  const spinner = ora().start('Deleting assistant1...')
+  const spinner = ora();
 
   try {
 
@@ -16,6 +16,7 @@ module.exports = async (args) => {
           profile = args.credentials || "default",
           twilioClient = await require('../lib/twilio-assistant/client')(profile);
 
+    spinner.start('Deleting assistant...');
     await AutopilotCore.exportAssistant(sid, twilioClient, true);
     await AutopilotCore.deleteAssistant(sid, twilioClient);
 

@@ -9,17 +9,19 @@ module.exports = async (args) => {
     return;
   }
 
-  const spinner = ora().start('Updating assistant...');
+  const spinner = ora();
 
   try {
 
     const schema = args.schema,
           profile = args.credentials || "default",
+          assistantSid = args.assistant || false,
           twilioClient = await require('../lib/twilio-assistant/client')(profile);
 
+    spinner.start('Updating assistant...');
     const fullPath = `${path.resolve()}/${schema}`; 
 
-    const assistant = await AutopilotCore.updateAssistant(fullPath, twilioClient);
+    const assistant = await AutopilotCore.updateAssistant(fullPath, twilioClient, assistantSid);
     
     spinner.stop();
 
@@ -28,6 +30,7 @@ module.exports = async (args) => {
   } catch (err) {
 
     spinner.stop();
+    console.log(err);
     console.error(`ERROR: ${err}`);
   }
 }

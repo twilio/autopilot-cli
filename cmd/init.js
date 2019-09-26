@@ -13,9 +13,7 @@ module.exports = async (args) => {
     
     ta.initConfig(args);
 
-    spinner.stop()
-
-    //TODO: implement init command
+    spinner.stop();
 
 
   } catch (err) {

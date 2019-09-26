@@ -19,33 +19,41 @@ const menus = {
     version ............ get package version
     help ............... get help menu for a command`,
 
+  init: `  Usage:
+    ta init <options>
+  Options:
+    --credentials ...... [optional] credentials name.. To update credentials
+    --list.............. [optional] to show list of configured credentials`,
+
   list: `  Usage:
     ta list <options>
   Options:
-    --credentials, -c ...... [optional] credentials name`,
+    --credentials ...... [optional] credentials name`,
 
   create: `  Usage:
     ta create <options>
   Options:
-    --schema, -s ........... [option] Autopilot Schema File,
-    --credentials, -c ...... [optional] credentials name`,
+    --schema ........... [option] Autopilot Schema File,
+    --credentials ...... [optional] credentials name`,
 
   update: `  Usage:
     ta update <options>
   Options:
-    --schema, -s ........... Autopilot Schema File
-    --credentials, -c ...... [optional] credentials name`,
+    --schema ........... Autopilot Schema File
+    --assistant ........ [optional] Twilio Autopilot Assistant SID
+    --credentials ...... [optional] credentials name`,
 
   delete: `  Usage:
     ta delete <options>
   Options:
-    --assistant, -a ........ Twilio Autopilot Assistant SID
-    --credentials, -c ...... [optional] credentials name`,
+    --assistant ........ Twilio Autopilot Assistant SID
+    --credentials ...... [optional] credentials name`,
 
   export: `  Usage:
     ta export <options>
   Options:
-    --credentials, -c ...... [optional] credentials name`,
+    --assistant ........ [optional] Twilio Autopilot Assistant SID
+    --credentials ...... [optional] credentials name`,
 
   import: `  Usage:
     ta import [command] <options>
@@ -60,7 +68,7 @@ const menus = {
   Options : 
       --dfbackup ............. Dialogflow Agent Backup Zip File,
       --dfagent .............. Dialogflow Agent Name,
-      --credentials, -c ...... [optional] credentials name`,
+      --credentials ...... [optional] credentials name`,
 
   alexa : ` Usage:
     ta import alexa <options>
@@ -74,7 +82,7 @@ const menus = {
   Options:
     --assistant ............ Twilio Autopilot Assistant SID,
     --text ................. User text input, 
-    --credentials, -c ...... [optional] credentials name`,
+    --credentials ...... [optional] credentials name`,
 
   field: `  Usage:
     ta field <options>
@@ -82,7 +90,7 @@ const menus = {
     --assistant ............ Twilio Autopilot Assistant SID,
     --field ................ field type SID,
     --csv .................. CSV file, 
-    --credentials, -c ...... [optional] credentials name`,
+    --credentials ...... [optional] credentials name`,
 
   version: `  Usage:
     ta version `,
