@@ -4,7 +4,7 @@ const path = require('path'),
 
 module.exports = async (args) => {
 
-  const spinner = ora()
+  const spinner = ora();
 
   try {
 
@@ -17,18 +17,16 @@ module.exports = async (args) => {
 
       let url = 'https://raw.githubusercontent.com/twilio/autopilot-templates/master/Assistants/templates.json';
       
-
-      // clonedAssistant = await ta.clone(url);
       clonedAssistant = await AutopilotCore.cloneTemplate(url);
 
       schema = path.join(clonedAssistant, 'schema.json');
 
     }
 
-    spinner.start('Creating assistant...');
-
     let fullPath = `${path.resolve()}/${schema}`,
         twilioClient = await require('../lib/twilio-assistant/client')(profile);
+
+    spinner.start('Creating assistant...');
 
     const assistant = await AutopilotCore.createAssistant(fullPath, twilioClient);
 

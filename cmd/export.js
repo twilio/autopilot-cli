@@ -4,45 +4,52 @@ const AutopilotCore = require('@dabblelab/autopilot-core'),
 
 module.exports = async (args) => {
 
-  let spinner = await ora().start(`Getting assistant List...\n`);
+  const spinner = await ora();
+  let seletedAssistant = '';
 
   try {
 
     const profile = args.credentials || "default",
+          assistantSid = args.assistant || '', 
           twilioClient = await require('../lib/twilio-assistant/client')(profile);
 
+    if(assistantSid){
 
-    const fullData = await AutopilotCore.listAssistant(twilioClient);
-    if(fullData.length){
-
-      const choices = await fullData.map(x => {return x.uniqueName});
-      spinner.stop();
-
-      inquirer.prompt([
-        {
-          type: 'list',
-          name: 'assistantName',
-          message: 'Choose your assistant: ',
-          choices: choices
-        }
-      ]).then(async (answer) => {
-        
-        let seletedAssistant = answer.assistantName;
-
-        spinner = ora().start(`Exporting assistant1...`);
-
-        const assistant = await AutopilotCore.exportAssistant(seletedAssistant, twilioClient);
-
-        spinner.stop();
-        console.log(`\nFile exported in ${assistant.filename}`);
-          
-      })
+      seletedAssistant = assistantSid;
     }else{
 
+      spinner.start(`Getting assistant List...\n`);
+
+      const fullData = await AutopilotCore.listAssistant(twilioClient);
       spinner.stop();
-      console.log('no assistants.');
+
+      if(fullData.length){
+
+        const choices = await fullData.map(x => {return x.uniqueName});
+
+        const answer = await inquirer.prompt([
+          {
+            type: 'list',
+            name: 'assistantName',
+            message: 'Choose your assistant: ',
+            choices: choices
+          }
+        ]);
+
+        seletedAssistant = answer.assistantName;
+      }else{
+
+        console.log('no assistants.');
+        return;
+      }
     }
 
+    spinner.start(`Exporting assistant...`);
+
+    const assistant = await AutopilotCore.exportAssistant(seletedAssistant, twilioClient);
+
+    spinner.stop();
+    console.log(`\nAssistant exported in ${assistant.filename}`);
   } catch (err) {
 
     spinner.stop();
