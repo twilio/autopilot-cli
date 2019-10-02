@@ -1,5 +1,4 @@
-const ora = require('ora'),
-      ta = require('../lib/twilio-assistant');
+const ta = require('../lib/twilio-assistant');
 
 module.exports = async (args) => {
 
@@ -7,17 +6,12 @@ module.exports = async (args) => {
     console.log(`The '--credentials <credentials>' arguments are required`)
     return
   }
-  const spinner = ora().start()
 
   try {
     
     ta.initConfig(args);
 
-    spinner.stop();
-
-
   } catch (err) {
-    spinner.stop()
     
     console.error(err)
   }
