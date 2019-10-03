@@ -27,7 +27,7 @@ Usage:
   ta init [--twilio-setup | --list | --credentials <name>]
   ta list [--credentials <name>]
   ta create [--schema <file>] [--credentials <name>]
-  ta update --schema <file> [--credentials <name>]
+  ta update --schema <file> [--assistant <assistant-sid>] [--credentials <name>]
   ta delete --assistant <assistant-sid> [--credentials <name>]
   ta export --assistant <assistant-sid> [--credentials <name>]
   ta import --dfbackup <dialogflow-backup-zip-file> --dfagent <dialogflow-agent-name> [--credentials <name>]
