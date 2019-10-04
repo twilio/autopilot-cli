@@ -22,8 +22,9 @@ const menus = {
   init: `  Usage:
     ta init <options>
   Options:
-    --credentials ...... [optional] credentials name.. To update credentials
-    --list.............. [optional] to show list of configured credentials`,
+    --credentials ...... [optional] name for the credentials to be created/updated
+    --list.............. [optional] list all the profile(s) for autopilot-cli
+    --twilio-setup...... [optional] setup Twilio credentials with "accountSID" and "authToken"`,
 
   list: `  Usage:
     ta list <options>
