@@ -1,6 +1,6 @@
 Twilio Autopilot CLI
 ===
-A command line interface for managing Twilio Autopilot. After installing you'll be able to:
+A command line interface for managing your Twilio Autopilot bots. After installing you'll be able to:
 
 * Create an assistant from a template
 * Export an existing assistant to a json file
@@ -62,4 +62,4 @@ To update an existing autopilot-cli credentail use following command:
 `$ ta init --credentials <name>`.
 
 ## Schema Files
-A schema file is a JSON document that's used to define an Autopilot assistant. They tell the CLI what to create or update. When exporting an Assistant will one will be saved. When creating an Assistant you can choose from one of the following [templates](https://github.com/twilio/autopilot-templates/tree/master/Assistants) so you can get started quickly.
+A schema file is a JSON document that's used to define an Autopilot assistant. They tell the CLI what to create or update. When exporting an Assistant will one be saved. When creating an Assistant you can choose from one of the following [templates](https://github.com/twilio/autopilot-templates/tree/master/Assistants) to get started quickly.

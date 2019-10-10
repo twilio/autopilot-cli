@@ -2,7 +2,6 @@ const ora = require('ora'),
       AutopilotCore = require('@dabblelab/autopilot-core');
 
 module.exports = async (args) => {
-
   if (!args.hasOwnProperty('assistant')) {
     console.log(`The '--assistant' argument is required`);
     return;
@@ -23,9 +22,10 @@ module.exports = async (args) => {
     spinner.stop();
     console.log(`\nRemoved assistant with UniqueName: ${args.assistant}`);
 
+    console.log(`\nRemoved assistant with UniqueName: ${args.assistant}`)
   } catch (err) {
 
     spinner.stop();
     console.error(`ERROR: ${err}`);
   }
-}
+};
