@@ -1,3 +1,5 @@
+> :warning: **The Autopilot CLI is now deprecated**: Please use the Autopilot Plugin for the Twilio CLI found here https://www.twilio.com/docs/autopilot/twilio-autopilot-cli
+
 Twilio Autopilot CLI
 ===
 A command line interface for managing your Twilio Autopilot bots. After installing you'll be able to:
